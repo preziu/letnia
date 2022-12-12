@@ -1,15 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="letniaKolonia logo fixed-top w-25 p-3" style="width:400px; height:400px" src="./assets/logo.jpg">
+  <LetniaHome msg="Siemanko!"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LetniaHome from './components/LetniaHome.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LetniaHome
   }
 }
 </script>
