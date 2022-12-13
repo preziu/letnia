@@ -1,9 +1,38 @@
 <template>
   <div class="container">
     <h3>Letnia kolonia</h3>
-    <h3>Siemanko</h3>
+    <h1 class="tooltip-inner">Beta testing scss</h1>
+   
+
+    <template>
+        <div>
+           <button @click="changeColor">Zmień kolor</button>
+        </div>
+    </template>
+
+
+
+
+
+
+
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      color: "black"
+    };
+  },
+  methods: {
+    changeColor() {
+      this.color = "blue";
+    }
+  }
+};
+</script>
 
 <script>
 export default {
@@ -12,7 +41,11 @@ export default {
     msg: String
   }
 }
+
+
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -29,5 +62,10 @@ li {
 }
 a {
   color: #42b983;
+}
+</style>
+<style>
+button {
+  color: {{ color }};
 }
 </style>
