@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h3>Letnia kolonia</h3>
+    <h3>Siemanko</h3>
   </div>
 </template>
 
