@@ -1,5 +1,4 @@
 <template>
-  <img src="./assets/img/LTLogo.png">
   <LetniaHome />
 </template>
 
@@ -23,9 +22,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   background-color: #008080;
-}
-
-@media only screen (max-width: 390px) {
-  background-color: ;
 }
 </style>

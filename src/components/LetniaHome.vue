@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="changeColor">Zmień kolor</button>
+    <img src="../assets/img/LTLogo.png" />
   </div>
 </template>
 
@@ -31,5 +31,12 @@ export default {
 <style scoped>
 button {
   color: v-bind(color)
+}
+
+@media (max-width: 390px) {
+  img {
+    width: 291px;
+    height: 202px;
+  }
 }
 </style>
