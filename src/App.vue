@@ -1,6 +1,5 @@
 <template>
-  <img alt="letniaKolonia logo fixed-top w-25 p-3" style="width:400px; height:400px" src="./assets/logo.jpg">
-  <LetniaHome msg="Siemanko!"/>
+  <LetniaHome />
 </template>
 
 <script>
@@ -22,5 +21,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: #008080;
 }
 </style>

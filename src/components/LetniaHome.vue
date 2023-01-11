@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <h3>Letnia kolonia</h3>
-    <h3>Siemanko</h3>
+  <div>
+    <img src="../assets/img/LTLogo.png" />
   </div>
 </template>
 
@@ -10,24 +9,34 @@ export default {
   name: 'LetniaHome',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      color: "black"
+    };
+  },
+  methods: {
+    changeColor() {
+      if (this.color == "black") {
+        this.color = "blue";
+      } else {
+        this.color = "black";
+      }
+      
+    }
   }
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+button {
+  color: v-bind(color)
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+@media (max-width: 390px) {
+  img {
+    width: 291px;
+    height: 202px;
+  }
 }
 </style>
