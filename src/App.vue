@@ -1,14 +1,17 @@
 <template>
   <LetniaHome />
+  <NavFooter />
 </template>
 
 <script>
-import LetniaHome from './components/LetniaHome.vue'
+import LetniaHome from './components/LetniaHome.vue';
+import NavFooter from './components/NavFooter.vue';
 
 export default {
   name: 'App',
   components: {
-    LetniaHome
+    LetniaHome,
+    NavFooter
   }
 }
 </script>
@@ -20,7 +23,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   background-color: #008080;
 }
 </style>

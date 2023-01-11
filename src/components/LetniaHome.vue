@@ -29,14 +29,15 @@ export default {
 </script>
 
 <style scoped>
-button {
-  color: v-bind(color)
+img {
+  margin-top: 3em
 }
 
 @media (max-width: 390px) {
   img {
     width: 291px;
     height: 202px;
+    margin-top: 2em
   }
 }
 </style>
