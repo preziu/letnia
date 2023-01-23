@@ -1,28 +1,38 @@
 <template>
-  <LetniaHome />
-  <NavFooter />
+  <div class="container">
+    <LetniaHome />
+    <MenuHome />
+    <NavFooter />
+  </div>
 </template>
 
 <script>
 import LetniaHome from './components/LetniaHome.vue';
+import MenuHome from './components/MenuHome.vue';
 import NavFooter from './components/NavFooter.vue';
 
 export default {
   name: 'App',
   components: {
     LetniaHome,
-    NavFooter
+    NavFooter,
+    MenuHome
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #008080;
+  background: url(assets/img/wallpaper.jpeg);
+  background-size: cover;
+}
+
+.container {
+  min-width: 100vw;
+  padding: 0 0 0 0;
 }
 </style>

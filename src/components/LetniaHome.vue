@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../assets/img/LTLogo.png" />
+    <img src="../assets/img/3d2.gif" />
   </div>
 </template>
 
@@ -29,10 +29,6 @@ export default {
 </script>
 
 <style scoped>
-img {
-  margin-top: 3em
-}
-
 @media (max-width: 390px) {
   img {
     width: 291px;
