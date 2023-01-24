@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer class="">
         <nav id="navbar-footer" 
             class="
                 navbar
@@ -34,5 +34,7 @@ export default {
 </script>
 
 <style>
-
+.navbar-footer {
+    bottom: 0;
+}
 </style>

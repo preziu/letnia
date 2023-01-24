@@ -7,28 +7,13 @@
 <script>
 export default {
   name: 'LetniaHome',
-  props: {
-    msg: String
-  },
-  data() {
-    return {
-      color: "black"
-    };
-  },
-  methods: {
-    changeColor() {
-      if (this.color == "black") {
-        this.color = "blue";
-      } else {
-        this.color = "black";
-      }
-      
-    }
-  }
 };
 </script>
 
 <style scoped>
+img {
+  max-width: 100%;
+}
 @media (max-width: 390px) {
   img {
     width: 291px;

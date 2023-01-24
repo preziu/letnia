@@ -30,12 +30,23 @@
 </template>
 
 <script>
-export default {
-    
-}
 </script>
 
 <style>
+@media (max-width: 390px) {
+  .col {
+    min-width: 300px;
+    height: 100%;
+    margin-top: 2em
+  }
+}
 
+@media (max-width: 1180px) {
+  .col {
+    min-width: 400px;
+    height: 100%;
+    margin-top: 3em
+  }
+}
     
 </style>
