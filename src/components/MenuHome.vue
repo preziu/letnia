@@ -41,7 +41,7 @@
     .col {
         min-width: 300px;
         height: 100%;
-        margin-top: 2em
+        margin-top: 2em !important;
     }
 }
 
@@ -49,7 +49,7 @@
     .col {
         min-width: 400px;
         height: 100%;
-        margin-top: 3em
+        margin-top: 3em !important;
     }
 }
 
