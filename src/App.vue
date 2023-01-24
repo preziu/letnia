@@ -3,6 +3,7 @@
     <LetniaHome />
     <MenuHome />
     <!-- <NavFooter /> -->
+    <router-view />
   </div>
 </template>
 
