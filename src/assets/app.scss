@@ -1326,9 +1326,9 @@ button.section-black:focus {
  * = Text utility classes
  */
 
-.text-underline {
-    text-decoration: underline !important;
-}
+// .text-underline {
+//     text-decoration: underline !important;
+// }
 
 .text-through {
     text-decoration: line-through !important;
@@ -2578,9 +2578,9 @@ button.section-black:focus {
     position: relative;
 }
 
-.badge-inline+span>a {
-    text-decoration: underline;
-}
+// .badge-inline+span>a {
+//     text-decoration: underline;
+// }
 
 .pixel-lite-badge {
     position: relative;
@@ -6447,7 +6447,6 @@ ul li {
 
 a,
 .text-action {
-    color: #000181;
     font-weight: 400;
 }
 
