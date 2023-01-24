@@ -2,16 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <img src="../assets/img/DiskDrive.png" alt="">
-                <div class="text-primary">
-                    Zarezerwuj wczasy
-                </div>
+                <router-link to="/booking">
+                    <img src="../assets/img/DiskDrive.png" alt="">
+                    <div class="text-primary">
+                        Zarezerwuj wczasy
+                    </div>
+                </router-link>
             </div>
             <div class="col">
                 <img src="../assets/img/Volume.png" alt="">
                 <div class="text-primary">
                     Plan zajec
                 </div>
+                
             </div>
             <div class="col">
                 <img src="../assets/img/Internet.png" alt="">
@@ -26,6 +29,7 @@
                 </div>
             </div>
         </div>
+        <router-view />
     </div>
 </template>
 
