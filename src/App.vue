@@ -53,10 +53,6 @@ export default {
 </script>
 
 <style>
-html {
-  cursor: url("assets/cursorImages/pianoani.gif"), auto;
-}
-
 * {
   cursor: url("assets/cursorImages/piano1.png"), auto;
   -webkit-animation: cursor 800ms infinite;
