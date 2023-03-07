@@ -1,6 +1,13 @@
 <template>
 	<HeaderComponent>
-		<div>WOW! Moc super zabawy!</div>
+		<div>
+			<div class="d-flex justify-content-center">
+				<img class="d-block w-50" src="@/assets/img/Zamawiam.png" alt="Ale jazdeczka!">
+			</div>
+			<div>Tu mozna zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu mozna zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu mozna zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+		</div>
 	</HeaderComponent>
 	<section class="section-sm">
 		<div class="card card-tertiary">
@@ -156,6 +163,9 @@
 </template>
 
 <style>
+.card-header {
+	background-image: url("../assets/img/rivets.png") !important;
+}
 @media (max-width: 390px) {
 
 }

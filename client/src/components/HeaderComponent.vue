@@ -1,7 +1,7 @@
 <template>
     <section class="section-sm">
 		<div class="d-flex">
-			<div>
+			<div class="mr-4">
 				<router-link to="/">
                     <img src="@/assets/img/MyComputer.png" />
                     <div class="mt-1">Strona główna</div>

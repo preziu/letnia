@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainView from '../views/MainView.vue';
 import BookingView from '../views/BookingView.vue';
 import TimetableView from '../views/TimetableView.vue'
+import StayView from '../views/StayView.vue'
+import MerchView from '../views/MerchView.vue'
 
 const routes = [
   {
@@ -18,6 +20,16 @@ const routes = [
     path: '/timetable',
     name: 'TimetableView',
     component: TimetableView
+  },
+  {
+    path: '/stay',
+    name: 'StayView',
+    component: StayView
+  },
+  {
+    path: '/merch',
+    name: 'MerchView',
+    component: MerchView
   }
 ];
 
