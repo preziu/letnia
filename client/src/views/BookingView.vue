@@ -164,7 +164,7 @@
 
 <style>
 .card-header {
-	background-image: url("../assets/img/rivets.png") !important;
+	background-image: url("../assets/img/weave.png") !important;
 }
 @media (max-width: 390px) {
 
