@@ -8,7 +8,7 @@
         <div class="row menu">
             <div class="col-sm-12 col-md-3">
                 <router-link to="/booking">
-                    <img src="@/assets/img/DiskDrive.png" alt="" />
+                    <img src="@/assets/img/DiskDrive.png"/>
                     <div class="text-primary">Zarezerwuj wczasy</div>
                 </router-link>
             </div>
@@ -56,5 +56,4 @@
 a {
     text-decoration: none !important;
 }
-    
 </style>

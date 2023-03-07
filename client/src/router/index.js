@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainView from '../views/MainView.vue';
 import BookingView from '../views/BookingView.vue';
+import TimetableView from '../views/TimetableView.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/booking',
     name: 'BookingView',
     component: BookingView
+  },
+  {
+    path: '/timetable',
+    name: 'TimetableView',
+    component: TimetableView
   }
 ];
 
