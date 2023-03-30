@@ -46,7 +46,7 @@ body {
 }
 
 .bg-image {
-  background: url(assets/img/wallpaper.jpeg) no-repeat;
+  background: url(assets/img/wallpaper-inverted.png) no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
