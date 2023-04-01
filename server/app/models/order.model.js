@@ -1,9 +1,13 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
     {
-        title: String,
-        beds: Number,
-        reserved: Boolean
+        first_name: String,
+        last_name: String,
+        email: String,
+        paid: Boolean,
+        booking_type: String,
+        variant: Number,
+        amount: Number,
     },
     { timestamps: true }
     );
@@ -14,6 +18,6 @@ module.exports = mongoose => {
         return object;
     });
 
-    const Room = mongoose.model("room", schema);
-    return Room;
+    const Order = mongoose.model("order", schema);
+    return Order;
 };

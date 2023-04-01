@@ -22,7 +22,8 @@ app.get("/", (req, res) => {
     res.json({ message: "Server is running" });
 });
 
-require("./app/routes/room.routes")(app);
+require("./app/routes/booking.routes")(app);
+require("./app/routes/order.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8081;

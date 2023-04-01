@@ -176,7 +176,7 @@
 import HeaderComponent from '../components/HeaderComponent';
 
 export default {
-	name: "BookingView",
+	name: "OrderView",
 	components: {
 		HeaderComponent
 	},
@@ -187,7 +187,7 @@ export default {
 			email: '',
 			room: null,
 			variant: null,
-			showPrice: true,
+			showPrice: false,
 		}
 	},
 	computed: {
