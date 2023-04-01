@@ -16,20 +16,20 @@
 			</div>
 			<div class="card-body">
 				<div class="container">
-					<form class="signup-form" @submit.prevent="onSubmit">
+					<form class="signup-form" @submit.prevent="submitOrder">
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label for="default" class="mr-3">Kto dokonuje rezerwacji</label>
-							<input id="default" type="text" class="form-control w-75" v-model="first_name"/>
+							<input id="default" type="text" class="form-control w-75" v-model="order.first_name"/>
 						</div>
 
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label for="default" class="mr-3">Nazwisko rezerwanta</label>
-							<input id="default" type="text" class="form-control w-75" v-model="last_name"/>
+							<input id="default" type="text" class="form-control w-75" v-model="order.last_name"/>
 						</div>
 
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label for="default" class="mr-3">Adres internetowej skrzynki pocztowej</label>
-							<input id="default" type="email" class="form-control w-75" v-model="email"/>
+							<input id="default" type="email" class="form-control w-75" v-model="order.email"/>
 						</div>
 
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
@@ -40,9 +40,9 @@
 										<input 
 											class="form-check-input"
 											type="radio"
-											name="room"
-											value="1"
-											v-model="room"
+											name="booking_type"
+											value="tent"
+											v-model="order.booking_type"
 										>
 										<span class="form-check-sign"></span>
 										Namiot
@@ -53,9 +53,9 @@
 										<input 
 											class="form-check-input"
 											type="radio"
-											name="room"
-											value="2"
-											v-model="room"
+											name="booking_type"
+											value="2-bed"
+											v-model="order.booking_type"
 										>
 										<span class="form-check-sign"></span>
 										2 osoby
@@ -66,9 +66,9 @@
 										<input 
 											class="form-check-input"
 											type="radio"
-											name="room"
-											value="3"
-											v-model="room"
+											name="booking_type"
+											value="3-bed"
+											v-model="order.booking_type"
 										>
 										<span class="form-check-sign"></span>
 										3 osoby
@@ -79,9 +79,9 @@
 										<input 
 											class="form-check-input"
 											type="radio"
-											name="room"
-											value="4"
-											v-model="room"
+											name="booking_type"
+											value="4-bed"
+											v-model="order.booking_type"
 										>
 										<span class="form-check-sign"></span>
 										4 osoby
@@ -92,9 +92,9 @@
 										<input 
 											class="form-check-input"
 											type="radio"
-											name="room"
-											value="5"
-											v-model="room"
+											name="booking_type"
+											value="5-bed"
+											v-model="order.booking_type"
 										>
 										<span class="form-check-sign"></span>
 										5 osób
@@ -113,7 +113,7 @@
 											type="radio"
 											name="variant"
 											value="1"
-											v-model="variant"
+											v-model="order.variant"
 										>
 										<span class="form-check-sign"></span>
 										22 - 25.06
@@ -126,7 +126,7 @@
 											type="radio"
 											name="variant"
 											value="2"
-											v-model="variant"
+											v-model="order.variant"
 										>
 										<span class="form-check-sign"></span>
 										23 - 25.06
@@ -149,7 +149,7 @@
 				</div>
 
 				<div class="d-flex justify-content-end mt-3">
-					<button class="btn me-2 mr-2 btn-success text-nowrap" type="button" v-on:click="onSubmit">
+					<button class="btn me-2 mr-2 btn-success text-nowrap" type="button" v-on:click="submitOrder">
 						<span class="btn-text">Dawaj do podsumowania</span>
 					</button>
 					<button class="btn me-2 mr-2 btn-danger" type="button">
@@ -174,6 +174,7 @@
 
 <script>
 import HeaderComponent from '../components/HeaderComponent';
+import OrderDataService from '../services/OrderDataService';
 
 export default {
 	name: "OrderView",
@@ -182,34 +183,49 @@ export default {
 	},
 	data() {
 		return {
-			first_name: '',
-			last_name: '',
-			email: '',
-			room: null,
-			variant: null,
-			showPrice: false,
+			order: {
+				id: null,
+				first_name: '',
+				last_name: '',
+				email: '',
+				paid: null,
+				booking_type: '',
+				variant: '',
+				amount: '',
+			},
+			submitted: false,
 		}
 	},
-	computed: {
+	// computed: {
 		
-	},
+	// },
 	methods: {
-		onSubmit() {
-			let order = {
-				first_name: this.first_name,
-				last_name: this.last_name,
-				email: this.email,
-				room: this.room,
-				variant: this.variant,
-			}
+		submitOrder() {
+			
+			var data = {
+				first_name:  this.order.first_name,
+				last_name:  this.order.last_name,
+				email:  this.order.email,
+				paid:  this.order.paid,
+				booking_type:  this.order.book,
+				variant: this.order.variant,
+				amount: this.order.amount,
+			};
 
-			this.first_name = '';
-			this.last_name = '';
-			this.email = '';
-			this.room = null;
-			this.variant = null;
-			console.log(order);
-		}
+			console.log(data);
+
+			OrderDataService.create(data)
+				.then(response => {
+					this.order.id = response.data.id;
+					console.log(response.data);
+					this.submitted = true;
+				})
+				.catch(e => {
+					console.log(e);
+				});
+
+			this.order = {};
+		},
 	},
 }
 </script>

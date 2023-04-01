@@ -26,8 +26,8 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    // const type = req.query.type;
-    // var condition = type ? { type: { $regex: new RegExp(type), $options: "i" } } : {};
+    const type = req.query.type;
+    var condition = type ? { type: { $regex: new RegExp(type), $options: "i" } } : {};
 
     Booking.find(condition)
         .then(data => {

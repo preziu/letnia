@@ -6,4 +6,6 @@ module.exports = app => {
     router.post("/", bookings.create);
 
     router.get("/", bookings.findAll);
+
+    app.use('/api/bookings', router);
 };

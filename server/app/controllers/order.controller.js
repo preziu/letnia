@@ -2,18 +2,18 @@ const db = require("../models");
 const Order = db.order;
 
 exports.create = (req, res) => {
-    const booking = new Booking({
+    const order = new Order({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
         paid: req.body.paid,
-        booking_type: req.body.booking_type,
+        order_type: req.body.order_type,
         variant: req.body.variant,
         paid_amount: req.body.amount,
     });
 
-    booking
-        .save(booking)
+    order
+        .save(order)
         .then(data => {
             res.send(data);
         })
@@ -26,7 +26,10 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    Booking.find(condition)
+    const first_name = req.query.first_name;
+    var condition = first_name ? { first_name: { $regex: new RegExp(first_name), $options: "i" } } : {};
+
+    Order.find(condition)
         .then(data => {
             res.send(data);
         })
