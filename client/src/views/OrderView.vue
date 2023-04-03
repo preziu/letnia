@@ -7,6 +7,15 @@
 			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
 			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
 			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
 		</div>
 	</HeaderComponent>
 	<section class="section-sm">
@@ -134,6 +143,18 @@
 								</div>
 							</div>
 						</div>
+
+						<div v-if="order.price" class="d-flex align-items-center justify-content-between mb-3 mt-3">
+							<label class="form-check-label">Cena:</label>
+							<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
+								{{this.order.price }}
+							</div>
+						</div>
+						<div v-else-if="!order.price" class="d-flex align-items-center justify-content-between mb-3 mt-3">
+							<label class="form-check-label">Cena pojawi się po wypełnieniu formularza</label>
+						</div>
+
+
 					</form>
 				</div>
 
@@ -149,12 +170,34 @@
 				</div>
 
 				<div class="d-flex justify-content-end mt-3">
-					<button class="btn me-2 mr-2 btn-success text-nowrap" type="button" v-on:click="submitOrder">
+					<button class="btn me-2 mr-2 btn-secondary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="showSummaryModal">
 						<span class="btn-text">Dawaj do podsumowania</span>
 					</button>
-					<button class="btn me-2 mr-2 btn-danger" type="button">
+					<button class="btn me-2 mr-2 btn-primary" type="button">
 						<span class="btn-text">Usuwam dane</span>
 					</button>
+				</div>
+			</div>
+
+			<div v-if="summaryReady" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Podsumowanie</h5>
+						</div>
+						<div class="modal-body">
+							<p>{{ this.order.first_name }}</p>
+							<p>{{ this.order.last_name }}</p>
+							<p>{{ this.order.email }}</p>
+							<p>{{ this.booking_type_translated }}</p>
+							<p>{{ this.variant_translated }}</p>
+							<p>Cena: {{ this.order.price }}</p>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<button type="button" class="btn btn-success" v-on:click="submitOrder" data-dismiss="modal">Przechodzę do płatności</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanSummary">Muszę coś poprawić</button>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -169,7 +212,7 @@
 @media (max-width: 390px) {
 
 }
-	
+
 </style>
 
 <script>
@@ -185,23 +228,110 @@ export default {
 		return {
 			order: {
 				id: null,
-				first_name: '',
+				first_name: 'Dupa',
 				last_name: '',
 				email: '',
 				paid: null,
 				booking_type: '',
 				variant: '',
 				amount: '',
+				price: null
 			},
+			booking_type_translated: '',
+			variant_translated: '',
 			submitted: false,
+			summaryReady: false,
 		}
 	},
-	// computed: {
-		
-	// },
+	computed: {
+        propertyAAndPropertyB() {
+			return `${this.order.booking_type}|${this.order.variant}`;
+        },
+    },
+	watch: {
+		propertyAAndPropertyB(newVal, oldVal) { // eslint-disable-line
+
+			if (this.order.booking_type === 'tent' && this.order.variant === '1') {
+				this.order.price = '1';
+			} else if (this.order.booking_type === 'tent' && this.order.variant === '2') {
+				this.order.price = '2';
+			} else if (this.order.booking_type === '2-bed' && this.order.variant === '1') {
+				this.order.price = '3';
+			} else if (this.order.booking_type === '2-bed' && this.order.variant === '2') {
+				this.order.price = '4';
+			} else if (this.order.booking_type === '3-bed' && this.order.variant === '1') {
+				this.order.price = '5';
+			} else if (this.order.booking_type === '3-bed' && this.order.variant === '2') {
+				this.order.price = '6';
+			} else if (this.order.booking_type === '4-bed' && this.order.variant === '1') {
+				this.order.price = '7';
+			} else if (this.order.booking_type === '4-bed' && this.order.variant === '2') {
+				this.order.price = '8';
+			} else if (this.order.booking_type === '5-bed' && this.order.variant === '1') {
+				this.order.price = '9';
+			} else if (this.order.booking_type === '5-bed' && this.order.variant === '2') {
+				this.order.price = '10';
+			}
+        },
+	},
 	methods: {
+		async showSummaryModal() {
+			await this.validateForm();
+			await this.translateOrderDetails();
+			this.summaryReady = true;
+		},
+		validateForm() {
+			if (this.order.first_name === '') {
+				console.log('Imię');
+			} else {
+				console.log('Imię jest');
+			}
+
+			if (this.order.last_name=== '') {
+				console.log('Nazwisko');
+			} else {
+				console.log('Nazwisko jest');
+			}
+
+			if (this.order.email === '') {
+				console.log('Email');
+			} else {
+				console.log('Email jest');
+			}
+
+			if (this.order.booking_type === '') {
+				console.log('Booking Type');
+			} else {
+				console.log('Booking jest');
+			}
+
+			if (this.order.variant === 'null') {
+				console.log('Variant');
+			} else {
+				console.log('Variant jest');
+			}
+		},
+		translateOrderDetails() {
+			if (this.order.booking_type === 'tent') {
+				this.booking_type_translated = 'Namiot';
+			} else if (this.order.booking_type === '2-bed') {
+				this.booking_type_translated = 'Pokój 2-osobowy';
+			} else if (this.order.booking_type === '3-bed') {
+				this.booking_type_translated = 'Pokój 3-osobowy';
+			} else if (this.order.booking_type === '4-bed') {
+				this.booking_type_translated = 'Pokój 4-osobowy';
+			} else if (this.order.booking_type === '5-bed') {
+				this.booking_type_translated = 'Pokój 5-osobowy';
+			}
+
+			if (this.order.variant === '1') {
+				this.variant_translated = '22 - 25.06';
+			} else if (this.order.variant === '2') {
+				this.variant_translated = '23 - 25.06';
+			}
+		},
 		submitOrder() {
-			
+			this.bookingTypeName();
 			var data = {
 				first_name:  this.order.first_name,
 				last_name:  this.order.last_name,
@@ -226,6 +356,9 @@ export default {
 
 			this.order = {};
 		},
+		cleanSummary() {
+			this.summaryReady = false;
+		}
 	},
 }
 </script>
