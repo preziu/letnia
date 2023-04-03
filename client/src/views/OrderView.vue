@@ -4,36 +4,36 @@
 			<div class="d-flex justify-content-center">
 				<img class="d-block w-50" src="@/assets/img/Zamawiam.png" alt="Ale jazdeczka!">
 			</div>
-			<div>Tu mozna zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu mozna zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu mozna zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
 		</div>
 	</HeaderComponent>
 	<section class="section-sm">
-		<div class="card card-tertiary">
+		<div class="card card-primary">
 			<div class="card-header text-center pt-2">
 				<h6>Formularz zapisowy</h6>
 			</div>
-			<div class="card-body">
+			<div class="card-body bg-white">
 				<div class="container">
 					<form class="signup-form" @submit.prevent="submitOrder">
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
-							<label for="default" class="mr-3">Kto dokonuje rezerwacji</label>
+							<label for="default" class="mr-3">Imię</label>
 							<input id="default" type="text" class="form-control w-75" v-model="order.first_name"/>
 						</div>
 
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
-							<label for="default" class="mr-3">Nazwisko rezerwanta</label>
+							<label for="default" class="mr-3">Nazwisko</label>
 							<input id="default" type="text" class="form-control w-75" v-model="order.last_name"/>
 						</div>
 
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
-							<label for="default" class="mr-3">Adres internetowej skrzynki pocztowej</label>
+							<label for="default" class="mr-3">Email</label>
 							<input id="default" type="email" class="form-control w-75" v-model="order.email"/>
 						</div>
 
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
-							<label class="form-check-label">Pokoik dla ilu dusz?</label>
+							<label class="form-check-label">Namiot a może pokój?</label>
 							<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
 								<div class="form-check form-check-radio mr-3">
 									<label class="form-check-label">

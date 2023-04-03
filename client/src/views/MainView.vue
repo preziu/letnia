@@ -18,13 +18,13 @@
                 <div class="col-sm-12 col-md-3">
                     <router-link to="/timetable">
                         <img src="@/assets/img/Volume.png" alt="" />
-                        <div class="text-primary">Plan zajec</div>
+                        <div class="text-primary">Plan zajęć</div>
                     </router-link>
                 </div>
                 <div class="col-sm-12 col-md-3">
                     <router-link to="/stay">
                         <img src="@/assets/img/Internet.png" alt="" />
-                        <div class="text-primary">Osrodek wypoczynkowy</div>
+                        <div class="text-primary">Ośrodek wypoczynkowy</div>
                     </router-link>
                 </div>
                 <div class="col-sm-12 col-md-3">

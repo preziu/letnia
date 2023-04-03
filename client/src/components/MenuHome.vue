@@ -12,7 +12,7 @@
             <div class="col">
                 <img src="../assets/img/Volume.png" alt="">
                 <div class="text-primary">
-                    Plan zajec
+                    Plan zajęćąść
                 </div>
                 
             </div>
