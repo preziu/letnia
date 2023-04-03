@@ -331,7 +331,6 @@ export default {
 			}
 		},
 		submitOrder() {
-			this.bookingTypeName();
 			var data = {
 				first_name:  this.order.first_name,
 				last_name:  this.order.last_name,
