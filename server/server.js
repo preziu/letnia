@@ -25,6 +25,16 @@ app.get("/", (req, res) => {
 require("./app/routes/booking.routes")(app);
 require("./app/routes/order.routes")(app);
 
+// handle production
+
+if(process.env.NODE_ENV === 'production') {
+    //static folder
+    app.use(express.static(__dirname + '/public/'));
+
+    //handle spa
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
