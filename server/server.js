@@ -5,7 +5,7 @@ const cors = require("cors");
 if (process.env.NODE_ENV === "production") {
         require("dotenv").config();
         console.log(process.env);
-        console.log(process.env.DATABASE_URL);
+        console.log(process.env.MONGODB_URL);
     }
 
 const app = express();
