@@ -4,6 +4,7 @@ const cors = require("cors");
 
 if (process.env.NODE_ENV !== "production") {
         require("dotenv").config();
+        console.log(process.env.DATABASE_URL);
     }
 
 const app = express();
@@ -33,7 +34,6 @@ require("./app/routes/order.routes")(app);
 
 if (process.env.NODE_ENV === 'production') {
     //static folder
-    console.log("using /public");
     app.use(express.static(__dirname + '/public/'));
 
     //handle spa
