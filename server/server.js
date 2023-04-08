@@ -2,8 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
         require("dotenv").config();
+        console.log(process.env);
         console.log(process.env.DATABASE_URL);
     }
 
