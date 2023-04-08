@@ -3,10 +3,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 if (process.env.NODE_ENV === "production") {
-        require("dotenv").config();
-        console.log(process.env);
-        console.log(process.env.MONGODB_URL);
-    }
+    require('dotenv').config({ path: require('find-config')('.env') })
+    console.log(process.env);
+    console.log(process.env.MONGODB_URL);
+}
 
 const app = express();
 app.use(express.json());
