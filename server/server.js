@@ -31,8 +31,9 @@ require("./app/routes/order.routes")(app);
 
 // handle production
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     //static folder
+    console.log("using /public");
     app.use(express.static(__dirname + '/public/'));
 
     //handle spa
