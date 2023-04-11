@@ -1,7 +1,15 @@
 <template>
     <HeaderComponent>
-        <div>Zobacz co będzie się działo, ale jaja! Normalnie nie uwierzysz jaki tu jest czilax, hoho.</div>
+        <div>🎸 Występy z muzyką na żywo (koncerty)</div>
+        <div>🎹 Dyskoteka (dj sety)</div>
+        <div>🌞 Spotkania i warsztaty (plenerowe i pod dachem)</div>
+        <h2></h2>
     </HeaderComponent>
+    <div>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</div>
+    <div>👉🏼Ty, Twoje ziomki i ziomki Twoich ziomków👈🏼</div>
+    <div>🎸 muzyczka 🏓 zabawa 🌞 chill 🏖️</div>
+    <div>IG: https://www.instagram.com/letniakolonia/ FB: https://www.facebook.com/letniakolonia/</div>
+    <br>
     <div class="card card-secondary">
         <div class="card-header text-center">Oh jaka miła galeryjka</div>
         <div class="card-body">
