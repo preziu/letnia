@@ -1,6 +1,0 @@
-db
-letnia
-ENRoitZe3Ro9mAZf
-
-push main to heroku - `git subtree push --prefix server/ heroku main`
-heroku logs - `heroku logs --tail`
