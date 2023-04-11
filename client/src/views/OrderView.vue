@@ -4,18 +4,10 @@
 			<div class="d-flex justify-content-center">
 				<img class="d-block w-50" src="@/assets/img/Zamawiam.png" alt="Ale jazdeczka!">
 			</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
-			<div>Tu można zamówić wloteczkę na super mikro festiwalik w goorach!</div>
+			<div>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</div>
+			<div>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</div>
+			<div>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</div>
+			<div>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </div>
 		</div>
 	</HeaderComponent>
 	<section class="section-sm">
