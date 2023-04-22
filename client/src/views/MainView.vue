@@ -9,25 +9,25 @@
 
         <section class="section-sm fixed-bottom menu">
             <div class="row">
-                <div class="col-sm-12 col-md-3">
+                <div class="col-sm-12 col-md-3 mt-5">
                     <router-link to="/order">
                         <img src="@/assets/img/DiskDrive.png"/>
                         <div class="text-primary">Zarezerwuj wczasy</div>
                     </router-link>
                 </div>
-                <div class="col-sm-12 col-md-3">
+                <div class="col-sm-12 col-md-3 mt-5">
                     <router-link to="/timetable">
                         <img src="@/assets/img/Volume.png" alt="" />
                         <div class="text-primary">Plan zajęć</div>
                     </router-link>
                 </div>
-                <div class="col-sm-12 col-md-3">
+                <div class="col-sm-12 col-md-3 mt-5">
                     <router-link to="/stay">
                         <img src="@/assets/img/Internet.png" alt="" />
                         <div class="text-primary">Ośrodek wypoczynkowy</div>
                     </router-link>
                 </div>
-                <div class="col-sm-12 col-md-3">
+                <div class="col-sm-12 col-md-3 mt-5">
                     <router-link to="/merch">
                         <img src="@/assets/img/Paint.png" alt="" />
                         <div class="text-primary">Kup akcesoria</div>
@@ -46,9 +46,6 @@
     .row {
         min-width: 300px;
         height: 100%;
-    }
-    .row > div {
-        margin-top: 2em !important;
     }
 }
 

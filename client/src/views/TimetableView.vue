@@ -1,14 +1,14 @@
 <template>
     <HeaderComponent>
-        <div>🎸 Występy z muzyką na żywo (koncerty)</div>
-        <div>🎹 Dyskoteka (dj sety)</div>
-        <div>🌞 Spotkania i warsztaty (plenerowe i pod dachem)</div>
+        <p>🎸 Występy z muzyką na żywo (koncerty)</p>
+        <p>🎹 Dyskoteka (dj sety)</p>
+        <p>🌞 Spotkania i warsztaty (plenerowe i pod dachem)</p>
         <h2></h2>
     </HeaderComponent>
-    <div>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</div>
-    <div>👉🏼Ty, Twoje ziomki i ziomki Twoich ziomków👈🏼</div>
-    <div>🎸 muzyczka 🏓 zabawa 🌞 chill 🏖️</div>
-    <div>IG: https://www.instagram.com/letniakolonia/ FB: https://www.facebook.com/letniakolonia/</div>
+    <p>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</p>
+    <p>👉🏼Ty, Twoje ziomki i ziomki Twoich ziomków👈🏼</p>
+    <p>🎸 muzyczka 🏓 zabawa 🌞 chill 🏖️</p>
+    <p>IG: <a href="https://www.instagram.com/letniakolonia/">https://www.instagram.com/letniakolonia/</a> FB: <a href="https://www.facebook.com/letniakolonia/">https://www.facebook.com/letniakolonia/</a></p>
     <br>
     <div class="card card-secondary">
         <div class="card-header text-center">Oh jaka miła galeryjka</div>

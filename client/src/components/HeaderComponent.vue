@@ -1,5 +1,5 @@
 <template>
-    <section class="section-sm">
+    <section class="section-sm pt-4">
 		<div class="d-flex">
 			<div class="mr-4">
 				<router-link to="/">

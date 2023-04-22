@@ -2,16 +2,18 @@
 	<HeaderComponent>
 		<div>
 			<div class="d-flex justify-content-center">
-				<img class="d-block w-50" src="@/assets/img/Zamawiam.png" alt="Ale jazdeczka!">
+				<img class="w-100" src="@/assets/img/Zamawiam.png" alt="Zamawianko!">
 			</div>
-			<div>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</div>
-			<div>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</div>
-			<div>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</div>
-			<div>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </div>
 		</div>
 	</HeaderComponent>
-	<section class="section-sm">
-		<div class="card card-primary">
+	<section class="section-sm pt-4">
+		<p>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</p>
+		<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</p>
+		<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
+		<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </p>
+	</section>
+	<section class="section-sm pt-4">
+		<div class="card card-secondary">
 			<div class="card-header text-center pt-2">
 				<h6>Formularz zapisowy</h6>
 			</div>
@@ -33,105 +35,109 @@
 							<input id="default" type="email" class="form-control w-75" v-model="order.email"/>
 						</div>
 
-						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
-							<label class="form-check-label">Namiot a może pokój?</label>
-							<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
-								<div class="form-check form-check-radio mr-3">
-									<label class="form-check-label">
-										<input 
-											class="form-check-input"
-											type="radio"
-											name="booking_type"
-											value="tent"
-											v-model="order.booking_type"
-										>
-										<span class="form-check-sign"></span>
-										Namiot
-									</label>
-								</div>
-								<div class="form-check form-check-radio mr-3">
-									<label class="form-check-label">
-										<input 
-											class="form-check-input"
-											type="radio"
-											name="booking_type"
-											value="2-bed"
-											v-model="order.booking_type"
-										>
-										<span class="form-check-sign"></span>
-										2 osoby
-									</label>
-								</div>
-								<div class="form-check form-check-radio mr-3">
-									<label class="form-check-label">
-										<input 
-											class="form-check-input"
-											type="radio"
-											name="booking_type"
-											value="3-bed"
-											v-model="order.booking_type"
-										>
-										<span class="form-check-sign"></span>
-										3 osoby
-									</label>
-								</div>
-								<div class="form-check form-check-radio mr-3">
-									<label class="form-check-label">
-										<input 
-											class="form-check-input"
-											type="radio"
-											name="booking_type"
-											value="4-bed"
-											v-model="order.booking_type"
-										>
-										<span class="form-check-sign"></span>
-										4 osoby
-									</label>
-								</div>
-								<div class="form-check form-check-radio">
-									<label class="form-check-label">
-										<input 
-											class="form-check-input"
-											type="radio"
-											name="booking_type"
-											value="5-bed"
-											v-model="order.booking_type"
-										>
-										<span class="form-check-sign"></span>
-										5 osób
-									</label>
+						<div class="row form-group d-flex align-items-center justify-content-between mb-3 mt-5">
+							<label class="col-sm form-check-label">Namiot a może pokój?</label>
+							<div class="col-sm">
+								<div class="row form-group d-flex flex-row justify-content-start mb-3 mt-3">
+									<div class="col-sm form-check form-check-radio mr-3">
+										<label class="form-check-label">
+											<input 
+												class="form-check-input"
+												type="radio"
+												name="booking_type"
+												value="tent"
+												v-model="order.booking_type"
+											>
+											<span class="form-check-sign"></span>
+											Namiot
+										</label>
+									</div>
+									<div class="col-sm form-check form-check-radio mr-3">
+										<label class="form-check-label">
+											<input 
+												class="form-check-input"
+												type="radio"
+												name="booking_type"
+												value="2-bed"
+												v-model="order.booking_type"
+											>
+											<span class="form-check-sign"></span>
+											2 osoby
+										</label>
+									</div>
+									<div class="col-sm form-check form-check-radio mr-3">
+										<label class="form-check-label">
+											<input 
+												class="form-check-input"
+												type="radio"
+												name="booking_type"
+												value="3-bed"
+												v-model="order.booking_type"
+											>
+											<span class="form-check-sign"></span>
+											3 osoby
+										</label>
+									</div>
+									<div class="col-sm form-check form-check-radio mr-3">
+										<label class="form-check-label">
+											<input 
+												class="form-check-input"
+												type="radio"
+												name="booking_type"
+												value="4-bed"
+												v-model="order.booking_type"
+											>
+											<span class="form-check-sign"></span>
+											4 osoby
+										</label>
+									</div>
+									<div class="col-sm form-check form-check-radio">
+										<label class="form-check-label">
+											<input 
+												class="form-check-input"
+												type="radio"
+												name="booking_type"
+												value="5-bed"
+												v-model="order.booking_type"
+											>
+											<span class="form-check-sign"></span>
+											5 osób
+										</label>
+									</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
-							<label class="form-check-label">Kiedy wpadacie?</label>
-							<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
-								<div class="form-check form-check-radio mr-3">
-									<label class="form-check-label">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="variant"
-											value="1"
-											v-model="order.variant"
-										>
-										<span class="form-check-sign"></span>
-										22 - 25.06
-									</label>
-								</div>
-								<div class="form-check form-check-radio">
-									<label class="form-check-label">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="variant"
-											value="2"
-											v-model="order.variant"
-										>
-										<span class="form-check-sign"></span>
-										23 - 25.06
-									</label>
+						<div class="row form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+							<label class="col-sm form-check-label">Kiedy wpadacie?</label>
+							<div class="col-sm">
+								<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
+									<div class="form-check form-check-radio mr-3">
+										<label class="form-check-label">
+											<input
+												class="form-check-input"
+												type="radio"
+												name="variant"
+												value="1"
+												v-model="order.variant"
+											>
+											<span class="form-check-sign"></span>
+											22 - 25.06
+										</label>
+									</div>
+									<div class="form-check form-check-radio">
+										<label class="form-check-label">
+											<input
+												class="form-check-input"
+												type="radio"
+												name="variant"
+												value="2"
+												v-model="order.variant"
+											>
+											<span class="form-check-sign"></span>
+											23 - 25.06
+										</label>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -145,8 +151,6 @@
 						<div v-else-if="!order.price" class="d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label class="form-check-label">Cena pojawi się po wypełnieniu formularza</label>
 						</div>
-
-
 					</form>
 				</div>
 
@@ -161,13 +165,17 @@
 					</div>
 				</div>
 
-				<div class="d-flex justify-content-end mt-3">
-					<button class="btn me-2 mr-2 btn-secondary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="showSummaryModal">
-						<span class="btn-text">Dawaj do podsumowania</span>
-					</button>
-					<button class="btn me-2 mr-2 btn-primary" type="button">
-						<span class="btn-text">Usuwam dane</span>
-					</button>
+				<div class="row d-flex justify-content-end mt-3 mr-3">
+					<div>
+						<button class="btn mr-2 btn-secondary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="showSummaryModal">
+							<span class="btn-text">Dawaj do podsumowania</span>
+						</button>
+					</div>
+					<div>
+						<button class="btn mr-2 mt-1 btn-primary" type="button">
+							<span class="btn-text">Usuwam dane</span>
+						</button>
+					</div>
 				</div>
 			</div>
 
@@ -198,9 +206,6 @@
 </template>
 
 <style>
-.card-header {
-	background-image: url("../assets/img/weave.png") !important;
-}
 @media (max-width: 390px) {
 
 }
@@ -220,7 +225,7 @@ export default {
 		return {
 			order: {
 				id: null,
-				first_name: 'Dupa',
+				first_name: '',
 				last_name: '',
 				email: '',
 				paid: null,
