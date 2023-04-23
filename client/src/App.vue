@@ -52,6 +52,12 @@ body {
   height: 100vh;
 }
 
+@media (max-width: 390px) {
+  .bg-image {
+    background-repeat: repeat;
+  }
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

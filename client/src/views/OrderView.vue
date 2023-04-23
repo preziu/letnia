@@ -6,13 +6,13 @@
 			</div>
 		</div>
 	</HeaderComponent>
-	<section class="section-sm pt-4">
+	<section class="section-sm pt-2">
 		<p>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</p>
 		<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</p>
 		<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
 		<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </p>
 	</section>
-	<section class="section-sm pt-4">
+	<section class="section-sm pb-4">
 		<div class="card card-secondary">
 			<div class="card-header text-center pt-2">
 				<h6>Formularz zapisowy</h6>
