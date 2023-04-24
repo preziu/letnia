@@ -4,6 +4,7 @@ import OrderView from '../views/OrderView.vue';
 import TimetableView from '../views/TimetableView.vue'
 import StayView from '../views/StayView.vue'
 import MerchView from '../views/MerchView.vue'
+import BookingView from '../views/BookingView.vue'
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: '/order',
     name: 'OrderView',
     component: OrderView
+  },
+  {
+    path: '/booking',
+    name: 'BookingView',
+    component: BookingView
   },
   {
     path: '/timetable',
