@@ -179,6 +179,26 @@
 				</div>
 			</div>
 
+			<div v-if="errorsOccured" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Popraw formularz!</h5>
+						</div>
+						<div class="modal-body">
+							<p>{{ this.first_name_validator }}</p>
+							<p>{{ this.last_name_validator }}</p>
+							<p>{{ this.email_validator }}</p>
+							<p>{{ this.booking_type_validator }}</p>
+							<p>{{ this.variant_validator }}</p>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanErrors">Ok! Poprawiam!</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div v-if="summaryReady" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
@@ -238,6 +258,7 @@ export default {
 			variant_translated: '',
 			submitted: false,
 			summaryReady: false,
+			errorsOccured: false,
 		}
 	},
 	computed: {
@@ -275,37 +296,40 @@ export default {
 		async showSummaryModal() {
 			await this.validateForm();
 			await this.translateOrderDetails();
-			this.summaryReady = true;
+			if (!this.errorsOccured) {
+				this.summaryReady = true;
+			}
 		},
 		validateForm() {
-			if (this.order.first_name === '') {
-				console.log('Imię');
-			} else {
-				console.log('Imię jest');
+			if (!this.order.first_name) {
+				this.first_name_validator = 'Podaj imię'
+				this.errorsOccured = true
 			}
 
-			if (this.order.last_name=== '') {
-				console.log('Nazwisko');
-			} else {
-				console.log('Nazwisko jest');
+			if (!this.order.last_name) {
+				this.last_name_validator = 'Podaj nazwisko'
+				this.errorsOccured = true
 			}
 
-			if (this.order.email === '') {
-				console.log('Email');
+			if (!this.order.email) {
+				this.email_validator = 'Adres email jest wymagany do złozenia zamówienia'
+				this.errorsOccured = true
 			} else {
-				console.log('Email jest');
+				const emailRegex = /\S+@\S+\.\S+/
+				if (!emailRegex.test(this.order.email)) {
+				this.email_validator = 'Adres email jest nieprawidłowy, jeśli to nie jest błąd, zgłoś się do nas na FB'
+				this.errorsOccured = true
+				}
 			}
 
-			if (this.order.booking_type === '') {
-				console.log('Booking Type');
-			} else {
-				console.log('Booking jest');
+			if (!this.order.variant) {
+				this.variant_validator = 'Daj znać kiedy wpadasz'
+				this.errorsOccured = true
 			}
 
-			if (this.order.variant === 'null') {
-				console.log('Variant');
-			} else {
-				console.log('Variant jest');
+			if (!this.order.booking_type) {
+				this.booking_type_validator = 'Daj znać czy zamawiasz pobyt w namiocie a moze w pokoju?'
+				this.errorsOccured = true
 			}
 		},
 		translateOrderDetails() {
@@ -338,8 +362,6 @@ export default {
 				amount: this.order.amount,
 			};
 
-			console.log(data);
-
 			OrderDataService.create(data)
 				.then(response => {
 					this.order.id = response.data.id;
@@ -354,6 +376,14 @@ export default {
 		},
 		cleanSummary() {
 			this.summaryReady = false;
+		},
+		cleanErrors() {
+			this.errorsOccured = false;
+			this.first_name_validator = '';
+			this.last_name_validator = '';
+			this.email_validator = '';
+			this.variant_validator = '';
+			this.booking_type_validator = '';
 		}
 	},
 }
