@@ -356,8 +356,8 @@ export default {
 				first_name:  this.order.first_name,
 				last_name:  this.order.last_name,
 				email:  this.order.email,
-				paid:  this.order.paid,
-				booking_type:  this.order.book,
+				paid:  false,
+				booking_type:  this.order.booking_type,
 				variant: this.order.variant,
 				amount: this.order.amount,
 			};

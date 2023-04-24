@@ -5,8 +5,16 @@ class OrderDataService {
         return http.post("/orders", data);
     }
     
-    getAll() {
+    findAll() {
         return http.get("/orders");
+    }
+
+    update(id, data) {
+        return http.put(`/orders/${id}`, data);
+    }
+
+    delete(id) {
+        return http.delete(`/orders/${id}`);
     }
 }
 
