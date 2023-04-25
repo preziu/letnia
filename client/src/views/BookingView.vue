@@ -11,7 +11,7 @@
             <div class="my-5">
                 <div class="row card-body" :class="order.paid ? 'bg-cyan' : 'bg-white'">
                     <div class="col">
-                        {{ index }}
+                        {{ index + 1 }}
                     </div>
                     <div class="col">
                         <div>{{ order.first_name }} {{ order.last_name }}</div>
