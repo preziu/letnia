@@ -39,7 +39,7 @@
 							<label class="col-sm form-check-label">Namiot a może pokój?</label>
 							<div class="col-sm">
 								<div class="row form-group d-flex flex-row justify-content-start mb-3 mt-3">
-									<div class="col-sm form-check form-check-radio mr-3">
+									<div v-if="bookingAvailabilities.tent" class="col-sm form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input 
 												class="form-check-input"
@@ -52,7 +52,7 @@
 											Namiot
 										</label>
 									</div>
-									<div class="col-sm form-check form-check-radio mr-3">
+									<div v-if="bookingAvailabilities.twoBed" class="col-sm form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input 
 												class="form-check-input"
@@ -65,7 +65,7 @@
 											Pokój 2-osobowy
 										</label>
 									</div>
-									<div class="col-sm form-check form-check-radio mr-3">
+									<div v-if="bookingAvailabilities.threeBed" class="col-sm form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input 
 												class="form-check-input"
@@ -78,7 +78,7 @@
 											Pokój 3-osobowy
 										</label>
 									</div>
-									<div class="col-sm form-check form-check-radio mr-3">
+									<div v-if="bookingAvailabilities.fourBed" class="col-sm form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input 
 												class="form-check-input"
@@ -91,7 +91,7 @@
 											Pokój 4-osobowy
 										</label>
 									</div>
-									<div class="col-sm form-check form-check-radio mr-3">
+									<div v-if="bookingAvailabilities.fiveBed" class="col-sm form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input 
 												class="form-check-input"
@@ -264,7 +264,14 @@ export default {
 			formReady: false,
 			orderPlaced: false,
 			errorsOccured: false,
-			bookingsData: {}
+			bookingsData: {},
+			bookingAvailabilities: {
+				tent: true,
+				twoBed: true,
+				threeBed: true,
+				fourBed:true,
+				fiveBed: true
+			}
 ,		}
 	},
 	mounted() {
@@ -421,8 +428,23 @@ export default {
 		loadBookings() {
 			BookingDataService.findAll()
             .then(response => {
+				if (response.data[0].tent < 1) {
+					this.bookingAvailabilities.tent = false;
+				} 
+				if (response.data[0].twoBed < 1) {
+					this.bookingAvailabilities.twoBed = false;
+				} 
+				if (response.data[0].threeBed < 1) {
+					this.bookingAvailabilities.threeBed = false;
+				}
+				if (response.data[0].fourBed < 1) {
+					this.bookingAvailabilities.fourBed = false;
+				} 
+				if (response.data[0].fiveBed < 1) {
+					this.bookingAvailabilities.fiveBed = false;
+				}
                 this.bookingsData = response;
-                this.loaded = true;
+				console.log(response);
             })
             .catch(e => {
                 console.log(e);
