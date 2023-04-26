@@ -11,12 +11,6 @@ export default {
 </script>
 
 <style>
-* {
-  cursor: url("assets/cursorImages/piano1.png"), auto;
-  -webkit-animation: cursor 800ms infinite;
-  animation: cursor 800ms infinite;
-}
-
 @-webkit-keyframes cursor {
   12% {cursor: url("assets/cursorImages/piano1.png"), auto;}
   23% {cursor: url("assets/cursorImages/piano2.png"), auto;}
