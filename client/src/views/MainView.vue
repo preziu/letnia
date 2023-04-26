@@ -1,52 +1,53 @@
 <template>
     <div class="container">
-        <section class="section-sm">
-            <div class="row d-flex justify-content-center">
-                <img alt="Letnia logo" class="logo top position-absolute" src="@/assets/img/3d2.gif" />
-                <img alt="2023" class="year position-relative top w-50" src="@/assets/img/2023.png" />
-            </div>
-        </section>
+        <div class="row d-flex justify-content-center">
+            <img alt="Letnia logo" class="logo top position-absolute" src="@/assets/img/3d2.gif" />
+            <img alt="2023" class="year position-relative top w-50" src="@/assets/img/2023.png" />
+        </div>
 
-        <section class="section-sm fixed-bottom menu">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 mt-5">
-                    <router-link to="/order">
-                        <img src="@/assets/img/DiskDrive.png"/>
-                        <div class="text-primary">Zarezerwuj wczasy</div>
-                    </router-link>
-                </div>
-                <div class="col-sm-12 col-md-3 mt-5">
-                    <router-link to="/timetable">
-                        <img src="@/assets/img/Volume.png" alt="" />
-                        <div class="text-primary">Plan zajęć</div>
-                    </router-link>
-                </div>
-                <div class="col-sm-12 col-md-3 mt-5">
-                    <router-link to="/stay">
-                        <img src="@/assets/img/Internet.png" alt="" />
-                        <div class="text-primary">Ośrodek wypoczynkowy</div>
-                    </router-link>
-                </div>
-                <div class="col-sm-12 col-md-3 mt-5">
-                    <router-link to="/merch">
-                        <img src="@/assets/img/Paint.png" alt="" />
-                        <div class="text-primary">Kup akcesoria</div>
-                    </router-link>
-                </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3 mt-5">
+                <router-link to="/order">
+                    <img src="@/assets/img/DiskDrive.png"/>
+                    <div class="text-primary hover">Zarezerwuj wczasy</div>
+                </router-link>
             </div>
-        </section>
+            <div class="col-sm-12 col-md-3 mt-5">
+                <router-link to="/timetable">
+                    <img src="@/assets/img/Volume.png" alt="" />
+                    <div class="text-primary hover">Plan zajęć</div>
+                </router-link>
+            </div>
+            <div class="col-sm-12 col-md-3 mt-5">
+                <router-link to="/stay">
+                    <img src="@/assets/img/Internet.png" alt="" />
+                    <div class="text-primary hover">Ośrodek wypoczynkowy</div>
+                </router-link>
+            </div>
+            <div class="col-sm-12 col-md-3 mt-5">
+                <img src="@/assets/img/Paint.png" alt="" />
+                <div class="text-primary">Już niebawem!</div>
+            </div>
+        </div>
+        <div class="row mt-5 d-flex justify-content-center">
+            <div class="mr-1 text-primary col-sm-12">
+            letniakolonia@regle.com.pl
+            </div>
+            <span> </span>
+            <div class="text-primary col-sm-12">
+                665 999 177
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 </script>
 
-<style>
-@media (max-width: 390px) {
-    .row {
-        min-width: 300px;
-        height: 100%;
-    }
+<style lang="scss">
+.hover:hover {
+    color: blue !important;
+    cursor: pointer !important;
 }
 
 .logo {
@@ -56,10 +57,6 @@
 
 .year {
     z-index: -1;
-}
-
-.menu {
-    margin-bottom: 10em;
 }
 
 a {

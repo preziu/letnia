@@ -1,17 +1,22 @@
 <template>
     <HeaderComponent>
+        <div>
+			<div class="d-flex justify-content-center">
+				<img class="w-50" src="@/assets/img/zabawa.png" alt="Zamawianko!">
+			</div>
+		</div>
+    </HeaderComponent>
+    <div class="card-body bg-white mb-2">
         <p>🎸 Występy z muzyką na żywo (koncerty)</p>
         <p>🎹 Dyskoteka (dj sety)</p>
         <p>🌞 Spotkania i warsztaty (plenerowe i pod dachem)</p>
-        <h2></h2>
-    </HeaderComponent>
-    <p>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</p>
-    <p>👉🏼Ty, Twoje ziomki i ziomki Twoich ziomków👈🏼</p>
-    <p>🎸 muzyczka 🏓 zabawa 🌞 chill 🏖️</p>
-    <p>IG: <a href="https://www.instagram.com/letniakolonia/">https://www.instagram.com/letniakolonia/</a> FB: <a href="https://www.facebook.com/letniakolonia/">https://www.facebook.com/letniakolonia/</a></p>
-    <br>
+        <p>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</p>
+        <p>👉🏼Ty, Twoje ziomki i ziomki Twoich ziomków👈🏼</p>
+        <p>🎸 muzyczka 🏓 zabawa 🌞 chill 🏖️</p>
+        <p>IG: <a href="https://www.instagram.com/letniakolonia/">https://www.instagram.com/letniakolonia/</a> FB: <a href="https://www.facebook.com/letniakolonia/">https://www.facebook.com/letniakolonia/</a></p>
+    </div>
     <div class="card card-secondary">
-        <div class="card-header text-center">Oh jaka miła galeryjka</div>
+        <div class="card-header text-center">Zobacz co się działo ostatnio!</div>
         <div class="card-body">
             <div id="carousel" class="carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
                 <ol class="carousel-indicators">

@@ -2,22 +2,22 @@
 	<HeaderComponent>
 		<div>
 			<div class="d-flex justify-content-center">
-				<img class="w-100" src="@/assets/img/Zamawiam.png" alt="Zamawianko!">
+				<img class="w-50" src="@/assets/img/zamawiam.png" alt="Zamawianko!">
 			</div>
 		</div>
 	</HeaderComponent>
-	<section class="section-sm pt-2">
-		<p>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</p>
-		<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</p>
-		<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
-		<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </p>
-	</section>
-	<section class="section-sm pb-4">
+	<section class="section-xsm pb-2">
 		<div class="card card-secondary">
 			<div class="card-header text-center pt-2">
 				<h6>Formularz zapisowy</h6>
 			</div>
 			<div class="card-body bg-white">
+				<div>
+					<p>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</p>
+					<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</p>
+					<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
+					<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </p>
+				</div>
 				<div class="container">
 					<form class="signup-form" @submit.prevent="submitOrder">
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
@@ -62,7 +62,7 @@
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
-											2 osoby
+											Pokój 2-osobowy
 										</label>
 									</div>
 									<div class="col-sm form-check form-check-radio mr-3">
@@ -75,7 +75,7 @@
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
-											3 osoby
+											Pokój 3-osobowy
 										</label>
 									</div>
 									<div class="col-sm form-check form-check-radio mr-3">
@@ -88,10 +88,10 @@
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
-											4 osoby
+											Pokój 4-osobowy
 										</label>
 									</div>
-									<div class="col-sm form-check form-check-radio">
+									<div class="col-sm form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input 
 												class="form-check-input"
@@ -101,7 +101,7 @@
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
-											5 osób
+											Pokój 5-osobowy
 										</label>
 									</div>
 								</div>
@@ -111,7 +111,7 @@
 						<div class="row form-group d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label class="col-sm form-check-label">Kiedy wpadacie?</label>
 							<div class="col-sm">
-								<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
+								<div class="form-group d-flex flex-row justify-content-between mb-3 mt-3">
 									<div class="form-check form-check-radio mr-3">
 										<label class="form-check-label">
 											<input
@@ -154,17 +154,6 @@
 					</form>
 				</div>
 
-				<div class="form-group d-flex justify-content-end mb-4 mr-4">
-					<div class="form-check">
-						<label class="form-check-label">
-							<input class="form-check-input" type="checkbox">
-							<span class="form-check-x"></span>
-							<span class="form-check-sign"></span>
-							Wyrazam zgodę
-						</label>
-					</div>
-				</div>
-
 				<div class="row d-flex justify-content-end mt-3 mr-3">
 					<div>
 						<button class="btn mr-2 btn-secondary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="showSummaryModal">
@@ -199,7 +188,7 @@
 				</div>
 			</div>
 
-			<div v-if="summaryReady" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div v-if="summaryReady && !orderPlaced" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -214,8 +203,28 @@
 							<p>Cena: {{ this.order.price }}</p>
 						</div>
 						<div class="modal-footer d-flex justify-content-center">
-							<button type="button" class="btn btn-success" v-on:click="submitOrder" data-dismiss="modal">Przechodzę do płatności</button>
+							<button type="button" class="btn btn-success" v-on:click="confirmOrder" data-dismiss="modal">Zgadza się!</button>
 							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanSummary">Muszę coś poprawić</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			// dokończyć ten temat
+			<div v-if="summaryReady && orderPlaced" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Dane do przelewu</h5>
+						</div>
+						<div class="modal-body">
+							<p>Twoje zamówienie zostało zapisane</p>
+							<p>Wyślij przelew na kwotę {{ this.order.price }} na numer bankowy: 12345 o tytule {{ this.order.email }}</p>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<button type="button" class="btn btn-success" v-on:click="submitOrder" data-dismiss="modal">Zrobione!</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanSummary">Jeśl</button>
 						</div>
 					</div>
 				</div>
@@ -258,6 +267,7 @@ export default {
 			variant_translated: '',
 			submitted: false,
 			summaryReady: false,
+			orderPlaced: false,
 			errorsOccured: false,
 		}
 	},
@@ -367,6 +377,7 @@ export default {
 					this.order.id = response.data.id;
 					console.log(response.data);
 					this.submitted = true;
+
 				})
 				.catch(e => {
 					console.log(e);
@@ -376,6 +387,10 @@ export default {
 		},
 		cleanSummary() {
 			this.summaryReady = false;
+			this.orderPlaced = false;
+		},
+		confirmOrder() {
+			this.orderPlaced = true;
 		},
 		cleanErrors() {
 			this.errorsOccured = false;
