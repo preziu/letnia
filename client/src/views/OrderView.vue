@@ -238,7 +238,6 @@
 			</div>
 			<div class="card-body bg-white">
 				<p>Twoje zamówienie zostało zapisane!</p>
-				<!-- <p>Wyślij przelew na kwotę {{ this.order.price }} na numer bankowy: 12345 o tytule {{ this.order.email }}</p> -->
 				<p>Na Twój email poleciało potwierdzenie rezerwacji!</p>
 				<p>Masz 24h na dokonanie przelewu - sprawdzamy po 48h.</p>
 				<p>Wszystkie szczegóły znajdziesz w mailu.</p>

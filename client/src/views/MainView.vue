@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <img alt="Letnia logo" class="logo top position-relative" src="@/assets/img/3d2.gif" />
-            <img alt="2023" class="year position-absolute top w-50" src="@/assets/img/2023.png" />
+            <img alt="2023" class="year position-absolute top mt-5" src="@/assets/img/2023.png" />
         </div>
 
         <div class="row align-items-center">
@@ -57,6 +57,7 @@
 
 .year {
     z-index: -1;
+    max-width: 35%;
 }
 
 a {
