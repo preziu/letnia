@@ -2,7 +2,7 @@
     <HeaderComponent>
         <div>
 			<div class="d-flex justify-content-center">
-				<img class="w-50" src="@/assets/img/zabawa.png" alt="Zamawianko!">
+				<img class="w-100" src="@/assets/img/zabawa.png" alt="Zamawianko!">
 			</div>
 		</div>
     </HeaderComponent>
@@ -16,7 +16,9 @@
         <p>IG: <a href="https://www.instagram.com/letniakolonia/">https://www.instagram.com/letniakolonia/</a> FB: <a href="https://www.facebook.com/letniakolonia/">https://www.facebook.com/letniakolonia/</a></p>
     </div>
     <div class="card card-secondary">
-        <div class="card-header text-center">Zobacz co się działo ostatnio!</div>
+        <div class="card-header text-center pt-3">
+            <h6>Zobacz co się działo ostatnio!</h6>
+        </div>
         <div class="card-body">
             <div id="carousel" class="carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
                 <ol class="carousel-indicators">

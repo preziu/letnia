@@ -2,11 +2,11 @@
 	<HeaderComponent>
 		<div>
 			<div class="d-flex justify-content-center">
-				<img class="w-50" src="@/assets/img/zamawiam.png" alt="Zamawianko!">
+				<img class="w-100" src="@/assets/img/zamawiam.png" alt="Zamawianko!">
 			</div>
 		</div>
 	</HeaderComponent>
-	<section class="section-xsm pb-2">
+	<section v-if="!summaryReady && !orderPlaced" class="section-xsm pb-2">
 		<div class="card card-secondary">
 			<div class="card-header text-center pt-2">
 				<h6>Formularz zapisowy</h6>
@@ -210,8 +210,6 @@
 				</div>
 			</div>
 
-
-			// dokończyć ten temat
 			<div v-if="summaryReady && orderPlaced" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
@@ -230,6 +228,21 @@
 				</div>
 			</div>
 
+		</div>
+	</section>
+
+	<section v-else class="section-xsm pb-2">
+		<div class="card card-secondary">
+			<div class="card-header text-center pt-2">
+				<h6>🫲 Zwycięstwo! 🫱</h6>
+			</div>
+			<div class="card-body bg-white">
+				<p>Twoje zamówienie zostało zapisane!</p>
+				<!-- <p>Wyślij przelew na kwotę {{ this.order.price }} na numer bankowy: 12345 o tytule {{ this.order.email }}</p> -->
+				<p>Na Twój email poleciało potwierdzenie rezerwacji!</p>
+				<p>Masz 24h na dokonanie przelewu - sprawdzamy po 48h.</p>
+				<p>Wszystkie szczegóły znajdziesz w mailu.</p>
+			</div>
 		</div>
 	</section>
 </template>
@@ -403,12 +416,3 @@ export default {
 	},
 }
 </script>
-
-<!-- TODO: 
-1. Validate if first_name given
-2. Validate if last_name given
-3. Validate if email is correct
-4. Validate if room chosen
-5. Validate if variant given
-6. Show calculated price
-7. Mobile -->
