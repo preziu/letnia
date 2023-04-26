@@ -7,5 +7,7 @@ module.exports = app => {
 
     router.get("/", bookings.findAll);
 
+    router.put("/:id", bookings.update);
+
     app.use('/api/bookings', router);
 };

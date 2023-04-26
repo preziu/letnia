@@ -5,8 +5,12 @@ class BookingDataService {
         return http.post("/bookings", data);
     }
     
-    getAll() {
+    findAll() {
         return http.get("/bookings");
+    }
+
+    update(id, data) {
+        return http.put(`/bookings/${id}`, data);
     }
 }
 

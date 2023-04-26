@@ -6,7 +6,7 @@
 			</div>
 		</div>
 	</HeaderComponent>
-	<section v-if="!summaryReady && !orderPlaced" class="section-xsm pb-2">
+	<section v-if="!orderPlaced" class="section-xsm pb-2">
 		<div class="card card-secondary">
 			<div class="card-header text-center pt-2">
 				<h6>Formularz zapisowy</h6>
@@ -58,7 +58,7 @@
 												class="form-check-input"
 												type="radio"
 												name="booking_type"
-												value="2-bed"
+												value="twoBed"
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
@@ -71,7 +71,7 @@
 												class="form-check-input"
 												type="radio"
 												name="booking_type"
-												value="3-bed"
+												value="threeBed"
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
@@ -84,7 +84,7 @@
 												class="form-check-input"
 												type="radio"
 												name="booking_type"
-												value="4-bed"
+												value="foruBed"
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
@@ -97,7 +97,7 @@
 												class="form-check-input"
 												type="radio"
 												name="booking_type"
-												value="5-bed"
+												value="fiveBed"
 												v-model="order.booking_type"
 											>
 											<span class="form-check-sign"></span>
@@ -156,12 +156,12 @@
 
 				<div class="row d-flex justify-content-end mt-3 mr-3">
 					<div>
-						<button class="btn mr-2 btn-secondary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="showSummaryModal">
+						<button class="btn mr-2 m-1 btn-secondary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" data-backdrop="static" data-keyboard="false" v-on:click="showSummaryModal">
 							<span class="btn-text">Dawaj do podsumowania</span>
 						</button>
 					</div>
 					<div>
-						<button class="btn mr-2 mt-1 btn-primary" type="button">
+						<button class="btn mr-2 m-1 btn-primary" type="button">
 							<span class="btn-text">Usuwam dane</span>
 						</button>
 					</div>
@@ -188,7 +188,7 @@
 				</div>
 			</div>
 
-			<div v-if="summaryReady && !orderPlaced" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div v-if="formReady" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -203,26 +203,8 @@
 							<p>Cena: {{ this.order.price }}</p>
 						</div>
 						<div class="modal-footer d-flex justify-content-center">
-							<button type="button" class="btn btn-success" v-on:click="confirmOrder" data-dismiss="modal">Zgadza się!</button>
+							<button type="button" class="btn btn-success" v-on:click="submitOrder" data-dismiss="modal">Zgadza się!</button>
 							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanSummary">Muszę coś poprawić</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div v-if="summaryReady && orderPlaced" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLongTitle">Dane do przelewu</h5>
-						</div>
-						<div class="modal-body">
-							<p>Twoje zamówienie zostało zapisane</p>
-							<p>Wyślij przelew na kwotę {{ this.order.price }} na numer bankowy: 12345 o tytule {{ this.order.email }}</p>
-						</div>
-						<div class="modal-footer d-flex justify-content-center">
-							<button type="button" class="btn btn-success" v-on:click="submitOrder" data-dismiss="modal">Zrobione!</button>
-							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanSummary">Jeśl</button>
 						</div>
 					</div>
 				</div>
@@ -256,6 +238,7 @@
 <script>
 import HeaderComponent from '../components/HeaderComponent';
 import OrderDataService from '../services/OrderDataService';
+import BookingDataService from '../services/BookingDataService';
 
 export default {
 	name: "OrderView",
@@ -278,10 +261,14 @@ export default {
 			booking_type_translated: '',
 			variant_translated: '',
 			submitted: false,
-			summaryReady: false,
+			formReady: false,
 			orderPlaced: false,
 			errorsOccured: false,
-		}
+			bookingsData: {}
+,		}
+	},
+	mounted() {
+		this.loadBookings();
 	},
 	computed: {
         propertyAAndPropertyB() {
@@ -295,21 +282,21 @@ export default {
 				this.order.price = '1';
 			} else if (this.order.booking_type === 'tent' && this.order.variant === '2') {
 				this.order.price = '2';
-			} else if (this.order.booking_type === '2-bed' && this.order.variant === '1') {
+			} else if (this.order.booking_type === 'twoBed' && this.order.variant === '1') {
 				this.order.price = '3';
-			} else if (this.order.booking_type === '2-bed' && this.order.variant === '2') {
+			} else if (this.order.booking_type === 'twoBed' && this.order.variant === '2') {
 				this.order.price = '4';
-			} else if (this.order.booking_type === '3-bed' && this.order.variant === '1') {
+			} else if (this.order.booking_type === 'threeBed' && this.order.variant === '1') {
 				this.order.price = '5';
-			} else if (this.order.booking_type === '3-bed' && this.order.variant === '2') {
+			} else if (this.order.booking_type === 'threeBed' && this.order.variant === '2') {
 				this.order.price = '6';
-			} else if (this.order.booking_type === '4-bed' && this.order.variant === '1') {
+			} else if (this.order.booking_type === 'foruBed' && this.order.variant === '1') {
 				this.order.price = '7';
-			} else if (this.order.booking_type === '4-bed' && this.order.variant === '2') {
+			} else if (this.order.booking_type === 'foruBed' && this.order.variant === '2') {
 				this.order.price = '8';
-			} else if (this.order.booking_type === '5-bed' && this.order.variant === '1') {
+			} else if (this.order.booking_type === 'fiveBed' && this.order.variant === '1') {
 				this.order.price = '9';
-			} else if (this.order.booking_type === '5-bed' && this.order.variant === '2') {
+			} else if (this.order.booking_type === 'fiveBed' && this.order.variant === '2') {
 				this.order.price = '10';
 			}
         },
@@ -319,7 +306,7 @@ export default {
 			await this.validateForm();
 			await this.translateOrderDetails();
 			if (!this.errorsOccured) {
-				this.summaryReady = true;
+				this.formReady = true;
 			}
 		},
 		validateForm() {
@@ -357,13 +344,13 @@ export default {
 		translateOrderDetails() {
 			if (this.order.booking_type === 'tent') {
 				this.booking_type_translated = 'Namiot';
-			} else if (this.order.booking_type === '2-bed') {
+			} else if (this.order.booking_type === 'twoBed') {
 				this.booking_type_translated = 'Pokój 2-osobowy';
-			} else if (this.order.booking_type === '3-bed') {
+			} else if (this.order.booking_type === 'threeBed') {
 				this.booking_type_translated = 'Pokój 3-osobowy';
-			} else if (this.order.booking_type === '4-bed') {
+			} else if (this.order.booking_type === 'foruBed') {
 				this.booking_type_translated = 'Pokój 4-osobowy';
-			} else if (this.order.booking_type === '5-bed') {
+			} else if (this.order.booking_type === 'fiveBed') {
 				this.booking_type_translated = 'Pokój 5-osobowy';
 			}
 
@@ -373,36 +360,55 @@ export default {
 				this.variant_translated = '23 - 25.06';
 			}
 		},
-		submitOrder() {
+		async submitOrder() {
+			this.orderPlaced = true;
 			var data = {
-				first_name:  this.order.first_name,
-				last_name:  this.order.last_name,
-				email:  this.order.email,
-				paid:  false,
-				booking_type:  this.order.booking_type,
+				first_name: this.order.first_name,
+				last_name: this.order.last_name,
+				email: this.order.email,
+				paid: false,
+				booking_type: this.order.booking_type,
 				variant: this.order.variant,
 				amount: this.order.amount,
 			};
 
-			OrderDataService.create(data)
+			await OrderDataService.create(data)
 				.then(response => {
 					this.order.id = response.data.id;
 					console.log(response.data);
 					this.submitted = true;
-
 				})
 				.catch(e => {
 					console.log(e);
 				});
 
+			if (this.order.booking_type === 'tent') {
+				this.bookingsData.data[0].tent = this.bookingsData.data[0].tent - 1;
+			} else if (this.order.booking_type === 'twoBed') {
+				this.bookingsData.data[0].twoBed = this.bookingsData.data[0].twoBed - 1;
+			} else if (this.order.booking_type === 'threeBed') {
+				this.bookingsData.data[0].threeBed = this.bookingsData.data[0].threeBed - 1;
+			} else if (this.order.booking_type === 'foruBed') {
+				this.bookingsData.data[0].foruBed = this.bookingsData.data[0].foruBed - 1;
+			} else if (this.order.booking_type === 'fiveBed') {
+				this.bookingsData.data[0].fiveBed = this.bookingsData.data[0].fiveBed - 1;
+			}
+
+
+			await BookingDataService.update(this.bookingsData.data[0].id, this.bookingsData.data[0])
+            .then(response => {
+                console.log(response);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+
+			this.loadBookings();
 			this.order = {};
 		},
 		cleanSummary() {
-			this.summaryReady = false;
+			this.formReady = false;
 			this.orderPlaced = false;
-		},
-		confirmOrder() {
-			this.orderPlaced = true;
 		},
 		cleanErrors() {
 			this.errorsOccured = false;
@@ -411,6 +417,16 @@ export default {
 			this.email_validator = '';
 			this.variant_validator = '';
 			this.booking_type_validator = '';
+		},
+		loadBookings() {
+			BookingDataService.findAll()
+            .then(response => {
+                this.bookingsData = response;
+                this.loaded = true;
+            })
+            .catch(e => {
+                console.log(e);
+            });
 		}
 	},
 }

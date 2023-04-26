@@ -2,14 +2,17 @@ const db = require("../models");
 const Booking = db.booking;
 
 exports.create = (req, res) => {
-    if (!req.body.type) {
+    if (!req.body) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
 
     const booking = new Booking({
-        type: req.body.type,
-        quantity: req.body.quantity,
+        tent: req.body.tent,
+        twoBed: req.body.twoBed,
+        threeBed: req.body.threeBed,
+        fourBed: req.body.fourBed,
+        fiveBed: req.body.fiveBed
     });
 
     booking
@@ -37,6 +40,30 @@ exports.findAll = (req, res) => {
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while retrieving bookings."
+            });
+        });
+};
+
+exports.update = (req, res) => {
+    if (!req.body) {
+        return res.status(400).send({
+            message: "Data to update can not be empty!"
+        });
+    }
+
+    const id = req.params.id;
+
+    Booking.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+        .then(data => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update Booking with id=${id}. Maybe Booking was not found!`
+                });
+            } else res.send({ message: "Booking was updated successfully." });
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error updating Booking with id=" + id
             });
         });
 };

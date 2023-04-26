@@ -6,9 +6,41 @@
             </div>
         </div>
     </HeaderComponent>
+    <div v-if="this.loaded">
+        <div v-for="(booking, index) in bookingsData.data" :key="booking.id" class="card">
+            <div class="card-header">
+                Dostępne pokoje {{ index }}
+            </div>
+            <div class="card-body">
+                <div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+                    <label for="default" class="mr-3">Namiot</label>
+                    <input id="default" type="text" class="form-control w-75" v-model="booking.tent"/>
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+                    <label for="default" class="mr-3">Pokój 2-osobowy</label>
+                    <input id="default" type="text" class="form-control w-75" v-model="booking.twoBed"/>
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+                    <label for="default" class="mr-3">Pokój 3-osobowy</label>
+                    <input id="default" type="text" class="form-control w-75" v-model="booking.threeBed"/>
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+                    <label for="default" class="mr-3">Pokój 4-osobowy</label>
+                    <input id="default" type="text" class="form-control w-75" v-model="booking.fourBed"/>
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+                    <label for="default" class="mr-3">Pokój 5-osobowy</label>
+                    <input id="default" type="text" class="form-control w-75" v-model="booking.fiveBed"/>
+                </div>
+                <button class="btn mr-2 btn-tertiary text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="updateBookingsData(booking)">
+                    <span class="btn-text">Zmień liczbę pokoi</span>
+                </button>
+            </div>
+        </div>
+    </div>
     <ol>
         <div v-for="(order, index) in orders.data" :key="order.id">
-            <div class="my-5">
+            <div class="my-2">
                 <div class="row card-body" :class="order.paid ? 'bg-cyan' : 'bg-white'">
                     <div class="col">
                         {{ index + 1 }}
@@ -39,6 +71,7 @@
 <script>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import OrderDataService from '../services/OrderDataService';
+import BookingDataService from '../services/BookingDataService';
 
 export default {
     name: "StayView",
@@ -48,6 +81,9 @@ export default {
     data() {
         return {
             orders: {},
+            bookingsData: {},
+            bookingsUpdate: {},
+            loaded: false,
         }
     },
     mounted() {
@@ -58,11 +94,16 @@ export default {
             .catch(e => {
                 console.log(e);
             });
+
+        BookingDataService.findAll()
+            .then(response => {
+                this.bookingsData = response;
+                this.loaded = true;
+            })
+            .catch(e => {
+                console.log(e);
+            });
     },
-    computed: {
-        
-    },
-    
     methods: {
         translateVariant(order) {
             if (order.variant === 1) {
@@ -84,6 +125,17 @@ export default {
         },
         deleteOrder(order) {
             OrderDataService.delete(order.id)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        },
+        updateBookingsData(booking) {
+            console.log(booking);
+            console.log(booking);
+            BookingDataService.update(booking.id, booking)
             .then(response => {
                 console.log(response);
             })

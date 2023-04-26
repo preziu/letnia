@@ -1,8 +1,11 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
     {
-        type: String,
-        quantity: Number,
+        tent: Number,
+        twoBed: Number,
+        threeBed: Number,
+        fourBed: Number,
+        fiveBed: Number,
     },
     { timestamps: true }
     );
