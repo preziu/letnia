@@ -37,6 +37,9 @@
             <div class="text-primary col-sm-12">
                 665 999 177
             </div>
+            <div class="przemunio text-primary col-sm-12">
+                <br>made by Przemunio ✌️
+            </div>
         </div>
     </div>
 </template>
@@ -62,5 +65,9 @@
 
 a {
     text-decoration: none !important;
+}
+
+.przemunio {
+    font-size: 0.8em;
 }
 </style>
