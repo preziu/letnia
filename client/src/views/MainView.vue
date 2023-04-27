@@ -29,7 +29,7 @@
                 <div class="text-primary">Już niebawem!</div>
             </div>
         </div>
-        <div class="row mt-5 d-flex justify-content-center fixed-bottom mb-5">
+        <div class="row mt-5 d-flex justify-content-center mb-5">
             <div class="mr-1 text-primary col-sm-12">
             letniakolonia@regle.com.pl
             </div>

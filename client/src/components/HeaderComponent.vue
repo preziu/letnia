@@ -4,7 +4,7 @@
 			<div class="mr-4">
 				<router-link to="/">
                     <img src="@/assets/img/MyComputer.png" />
-                    <div class="mt-1 hover text-info">Strona główna</div>
+                    <div class="mt-1 hover text-primary">Strona główna</div>
                 </router-link>
             </div>
 			<div class="flex-grow-1">
