@@ -33,7 +33,6 @@
             <div class="mr-1 text-primary col-sm-12">
             letniakolonia@regle.com.pl
             </div>
-            <span> </span>
             <div class="text-primary col-sm-12">
                 665 999 177
             </div>
