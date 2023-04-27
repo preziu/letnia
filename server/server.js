@@ -21,11 +21,6 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple route
-// app.get("/", (req, res) => {
-//     res.json({ message: "Server is running" });
-// });
-
 require("./app/routes/booking.routes")(app);
 require("./app/routes/order.routes")(app);
 
