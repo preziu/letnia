@@ -39,11 +39,20 @@ body {
   display: inline-block;
 }
 
-.bg-image {
-  background: url(assets/img/wallpaper.jpeg) no-repeat;
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url(assets/img/wallpaper.jpeg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
 }
 
 @media (max-width: 390px) {
