@@ -379,15 +379,7 @@ export default {
 				amount: this.order.amount,
 			};
 
-			await OrderDataService.create(data)
-				.then(response => {
-					this.order.id = response.data.id;
-					console.log(response.data);
-					this.submitted = true;
-				})
-				.catch(e => {
-					console.log(e);
-				});
+			await OrderDataService.create(data);
 
 			if (this.order.booking_type === 'tent') {
 				this.bookingsData.data[0].tent = this.bookingsData.data[0].tent - 1;
@@ -402,13 +394,7 @@ export default {
 			}
 
 
-			await BookingDataService.update(this.bookingsData.data[0].id, this.bookingsData.data[0])
-            .then(response => {
-                console.log(response);
-            })
-            .catch(e => {
-                console.log(e);
-            });
+			await BookingDataService.update(this.bookingsData.data[0].id, this.bookingsData.data[0]);
 
 			this.loadBookings();
 			this.order = {};
@@ -444,7 +430,6 @@ export default {
 					this.bookingAvailabilities.fiveBed = false;
 				}
                 this.bookingsData = response;
-				console.log(response);
             })
             .catch(e => {
                 console.log(e);

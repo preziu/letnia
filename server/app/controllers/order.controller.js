@@ -1,5 +1,6 @@
 const db = require("../models");
 const Order = db.order;
+var nodemailer = require('nodemailer');
 
 exports.create = (req, res) => {
     const order = new Order({
@@ -16,6 +17,22 @@ exports.create = (req, res) => {
         .save(order)
         .then(data => {
             res.send(data);
+            var transport = nodemailer.createTransport({
+                host: "regle.home.pl",
+                port: 25,
+                auth: {
+                    user: "letniakolonia+regle_com_pl.regle",
+                    pass: "letniakolonia2020"
+                }
+            });
+            var mailOptions = {
+                from: "letniakolonia@regle.com.pl",
+                to: data.email,
+                subject: "Hello World",
+                text: "Hello world?",
+                html: "<b>Hello world?</b>",
+            };
+            transport.sendMail(mailOptions);
         })
         .catch(err => {
             res.status(500).send({
