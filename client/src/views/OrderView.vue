@@ -16,7 +16,8 @@
 					<p>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</p>
 					<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</p>
 					<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
-					<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne. </p>
+					<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne.</p>
+					<p>Więcej infomacji znajdziesz na <a href="https://www.facebook.com/events/718230955901964">stronie wydarzenia</a></p>
 				</div>
 				<div class="container">
 					<form class="signup-form" @submit.prevent="submitOrder">

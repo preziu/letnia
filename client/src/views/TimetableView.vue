@@ -7,7 +7,7 @@
 		</div>
     </HeaderComponent>
     <div class="card-body bg-white mb-2">
-        <p>🎸 Występy z muzyką na żywo (koncerty)</p>
+        <p class="mt-1">🎸 Występy z muzyką na żywo (koncerty)</p>
         <p>🎹 Dyskoteka (dj sety)</p>
         <p>🌞 Spotkania i warsztaty (plenerowe i pod dachem)</p>
         <p>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</p>
@@ -70,10 +70,11 @@
 </template>
 
 <style>
-.carousel-item {
-    height: 60vh;
+@media (max-width: 390px) {
+    .carousel-caption {
+        display: none;
+    }
 }
-    
 </style>
 
 <script>
