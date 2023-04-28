@@ -10,12 +10,13 @@ exports.create = (req, res) => {
         paid: req.body.paid,
         booking_type: req.body.booking_type,
         variant: req.body.variant,
-        paid_amount: req.body.amount,
+        price: req.body.price,
     });
 
     order
         .save(order)
         .then(data => {
+            console.log(data);
             res.send(data);
             var transport = nodemailer.createTransport({
                 host: "regle.home.pl",
@@ -28,9 +29,8 @@ exports.create = (req, res) => {
             var mailOptions = {
                 from: "letniakolonia@regle.com.pl",
                 to: data.email,
-                subject: "Hello World",
-                text: "Hello world?",
-                html: "<b>Hello world?</b>",
+                subject: "Letnia kolonia - potwierdzamy zamówienie",
+                html: `<p>🌼 No i super no i cześć! 🌼</p><p>Przyjęliśmy Twoją rezerwację.</p><p>Teraz, w ciągu 24 godzin, musisz zrobić przelew wg. poniższych danych. Koniecznie zwróć uwagę na tytuł przelewu! Po 48 godzinach od złożenia rezerwacji sprawdzamy czy rezerwacja została opłacona. Jeśli nie będzie płatności odblokowujemy pokój do ponownej rezerwacji, ale napiszemy Ci też w tej sprawie maila.</p><p>Po potwierdzeniu płatności otrzymasz od nas maila z informacją i szczegółami dotyczącymi naszego festiwaliku.</p><p>DANE DO PRZELEWU:</p><ul><li>Odbiorca:</li><li>Nr konta:</li><li>Kwota: ${data.price}</li><li>Tytuł przelewu: ${data.email}</li></ul>`
             };
             transport.sendMail(mailOptions);
         })
@@ -102,7 +102,7 @@ exports.update = (req, res) => {
                 from: "letniakolonia@regle.com.pl",
                 to: data.email,
                 subject: "Zamówienie potwierdzone",
-                html: "<b>Potwierdzemy Twoje zamówienie</b><br><p>Panie Paszczak weź Pan coś napisz tu mądrego</p>",
+                html: "<b>Potwierdzemy Twoje zamówienie</b><p>Panie Paszczak weź Pan coś napisz tu mądrego</p>",
             };
             transport.sendMail(mailOptions);
         })

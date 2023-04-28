@@ -7,7 +7,7 @@ module.exports = mongoose => {
         paid: Boolean,
         booking_type: String,
         variant: Number,
-        amount: Number,
+        price: Number,
     },
     { timestamps: true }
     );

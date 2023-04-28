@@ -60,6 +60,21 @@ exports.update = (req, res) => {
                     message: `Cannot update Booking with id=${id}. Maybe Booking was not found!`
                 });
             } else res.send({ message: "Booking was updated successfully." });
+            var transport = nodemailer.createTransport({
+                host: "regle.home.pl",
+                port: 25,
+                auth: {
+                    user: "letniakolonia+regle_com_pl.regle",
+                    pass: process.env.MAIL_PASS
+                }
+            });
+            var mailOptions = {
+                from: "letniakolonia@regle.com.pl",
+                to: data.email,
+                subject: "Letnia kolonia - potwierdzamy zamówienie",
+                html: `<p>🌼 No i bajlando i witamy na pokładzie! 🌼</p><p>Potwierdzamy Twoją rezerwację ❤️</p><u>Gdzie więcej informacji?</u><p>Bieżące informacje pojawiają się na naszych profilach <a href="https://www.facebook.com/letniakolonia">FB</a> i <a href="https://www.instagram.com/letniakolonia/">IG</a> oraz na <a href="https://www.letniakolonia.pl/">stronie wydarzenia</a></p><p>Najważniejsze aktualności wysyłali będziemy też mailem.</p><u>Jak dojechać?</u><p>Na miejscu mamy parking, możesz dojechać samochodem, ale organizujemy również odbiory ze stacji PKP w Domaszkowie.</p><u>Co musisz wziąć?</u><p>Akcesoria wypoczynkowo-basenowe, gry i zabawy plenerowe, urlop i uśmiech na twarzy.</p><p>Jeśli masz pytania pisz do nas na letniakolonia@regle.com.pl</p><p>DO ZOBACZENIA! ❤️</p>`
+            };
+            transport.sendMail(mailOptions);
         })
         .catch(err => {
             res.status(500).send({

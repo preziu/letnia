@@ -49,6 +49,7 @@
                         <div>{{ order.first_name }} {{ order.last_name }}</div>
                         <div>{{ order.email }}</div>
                         <div>{{ translateVariant(order) }} {{ order.booking_type }}</div>
+                        <div>Cena: {{ order.price }}</div>
                     </div>
                     <div class="col">
                         <button class="btn mr-2 btn-success text-nowrap" type="button" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="confirmPayment(order)">

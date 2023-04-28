@@ -376,7 +376,7 @@ export default {
 				paid: false,
 				booking_type: this.order.booking_type,
 				variant: this.order.variant,
-				amount: this.order.amount,
+				price: this.order.price,
 			};
 
 			await OrderDataService.create(data);
