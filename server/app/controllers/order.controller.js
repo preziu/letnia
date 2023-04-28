@@ -81,13 +81,6 @@ exports.delete = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    console.log(req.body);
-    // if (!req.body) {
-    //     return res.status(400).send({
-    //         message: "Data to update can not be empty!"
-    //     });
-    // }
-
     const id = req.params.id;
 
     Order.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
