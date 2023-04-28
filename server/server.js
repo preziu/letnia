@@ -1,4 +1,5 @@
 const express = require("express");
+var forceSsl = require('force-ssl-heroku');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -8,6 +9,8 @@ if (process.env.NODE_ENV !== "production") {
 
 const app = express();
 app.use(express.json());
+
+app.use(forceSsl);
 
 var corsOptions = {
     origin: "http://localhost:8080"
