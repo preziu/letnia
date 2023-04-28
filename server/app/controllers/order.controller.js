@@ -22,7 +22,7 @@ exports.create = (req, res) => {
                 port: 25,
                 auth: {
                     user: "letniakolonia+regle_com_pl.regle",
-                    pass: "letniakolonia2020"
+                    pass: process.env.MAIL_PASS
                 }
             });
             var mailOptions = {
@@ -95,7 +95,7 @@ exports.update = (req, res) => {
                 port: 25,
                 auth: {
                     user: "letniakolonia+regle_com_pl.regle",
-                    pass: "letniakolonia2020"
+                    pass: process.env.MAIL_PASS
                 }
             });
             var mailOptions = {
