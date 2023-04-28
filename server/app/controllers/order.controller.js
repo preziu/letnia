@@ -90,6 +90,21 @@ exports.update = (req, res) => {
                     message: `Cannot update Order with id=${id}. Maybe Order was not found!`
                 });
             } else res.send({ message: "Order was updated successfully." });
+            var transport = nodemailer.createTransport({
+                host: "regle.home.pl",
+                port: 25,
+                auth: {
+                    user: "letniakolonia+regle_com_pl.regle",
+                    pass: "letniakolonia2020"
+                }
+            });
+            var mailOptions = {
+                from: "letniakolonia@regle.com.pl",
+                to: data.email,
+                subject: "Zamówienie potwierdzone",
+                html: "<b>Potwierdzemy Twoje zamówienie</b><br><p>Panie Paszczak weź Pan coś napisz tu mądrego</p>",
+            };
+            transport.sendMail(mailOptions);
         })
         .catch(err => {
             res.status(500).send({
