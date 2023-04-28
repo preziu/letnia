@@ -431,9 +431,6 @@ export default {
 				}
                 this.bookingsData = response;
             })
-            .catch(e => {
-                console.log(e);
-            });
 		}
 	},
 }

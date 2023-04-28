@@ -91,18 +91,12 @@ export default {
             .then(response => {
                 this.orders = response;
             })
-            .catch(e => {
-                console.log(e);
-            });
 
         BookingDataService.findAll()
             .then(response => {
                 this.bookingsData = response;
                 this.loaded = true;
             })
-            .catch(e => {
-                console.log(e);
-            });
     },
     methods: {
         translateVariant(order) {
@@ -114,34 +108,13 @@ export default {
         },
         confirmPayment(order) {
             order.paid = true;
-            console.log(order);
             OrderDataService.update(order.id, order)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(e => {
-                console.log(e);
-            });
         },
         deleteOrder(order) {
             OrderDataService.delete(order.id)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(e => {
-                console.log(e);
-            });
         },
         updateBookingsData(booking) {
-            console.log(booking);
-            console.log(booking);
             BookingDataService.update(booking.id, booking)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(e => {
-                console.log(e);
-            });
         }
     }
 }
