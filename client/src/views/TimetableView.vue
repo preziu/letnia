@@ -13,7 +13,7 @@
         <p>Najmniejszy festiwal na Świecie. W sercu malowniczej wsi w magicznej Kotlinie Kłodzkiej.</p>
         <p>👉🏼Ty, Twoje ziomki i ziomki Twoich ziomków👈🏼</p>
         <p>🎸 muzyczka 🏓 zabawa 🌞 chill 🏖️</p>
-        <p>IG: <a href="https://www.instagram.com/letniakolonia/">https://www.instagram.com/letniakolonia/</a> FB: <a href="https://www.facebook.com/letniakolonia/">https://www.facebook.com/letniakolonia/</a></p>
+        <p>IG: <a href="https://www.instagram.com/letniakolonia/" target="_blank">https://www.instagram.com/letniakolonia/</a> FB: <a href="https://www.facebook.com/letniakolonia/" target="_blank">https://www.facebook.com/letniakolonia/</a></p>
     </div>
     <div class="card card-secondary">
         <div class="card-header text-center pt-3">
