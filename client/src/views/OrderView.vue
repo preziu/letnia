@@ -9,15 +9,16 @@
 	<section v-if="!orderPlaced" class="section-xsm pb-2">
 		<div class="card card-secondary">
 			<div class="card-header text-center pt-2">
-				<h6>Formularz zapisowy</h6>
+				<h6>KARTA KWALIFIKACYJNA UCZESTNIKA WYPOCZYNKU</h6>
 			</div>
 			<div class="card-body bg-white">
 				<div>
 					<p>W tym miejscu zarezerwujesz swoje miejsce na naszym festiwalu.</p>
-					<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój i wprowadzasz listę imion i nazwisk swoich współlokatorów.</p>
+					<p>Gdyby pokoi zabrakło, nie pękaj, jeszcze się jakieś pojawią! Zakomunikujemy Wam to na FB</p>
+					<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój dla swojej ekipy.</p>
 					<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
 					<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne.</p>
-					<p>Więcej infomacji znajdziesz na <a href="https://www.facebook.com/events/718230955901964" target="_blank">stronie wydarzenia</a></p>
+					<p>Więcej infomacji znajdziesz na <a href="https://www.facebook.com/events/718230955901964" target="_blank">stronie wydarzenia.</a></p>
 				</div>
 				<div class="container">
 					<form class="signup-form" @submit.prevent="submitOrder">
@@ -34,6 +35,11 @@
 						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label for="default" class="mr-3">Email</label>
 							<input id="default" type="email" class="form-control w-75" v-model="order.email"/>
+						</div>
+
+						<div class="form-group d-flex align-items-center justify-content-between mb-3 mt-3">
+							<label for="default" class="mr-3">Numer telefonu</label>
+							<input id="default" type="phone" class="form-control w-75" v-model="order.phone"/>
 						</div>
 
 						<div class="row form-group d-flex align-items-center justify-content-between mb-3 mt-5">
@@ -152,6 +158,7 @@
 						<div v-else-if="!order.price" class="d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label class="form-check-label">Cena pojawi się po wypełnieniu formularza</label>
 						</div>
+						<!-- consent - składając zamówienie zgadzasz się z warunkami regualminu -->
 					</form>
 				</div>
 
@@ -181,6 +188,7 @@
 							<p>{{ this.email_validator }}</p>
 							<p>{{ this.booking_type_validator }}</p>
 							<p>{{ this.variant_validator }}</p>
+							<p>{{ this.phone_validator }}</p>
 						</div>
 						<div class="modal-footer d-flex justify-content-center">
 							<button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="cleanErrors">Ok! Poprawiam!</button>
@@ -199,6 +207,7 @@
 							<p>{{ this.order.first_name }}</p>
 							<p>{{ this.order.last_name }}</p>
 							<p>{{ this.order.email }}</p>
+							<p>{{ this.order.phone }}</p>
 							<p>{{ this.booking_type_translated }}</p>
 							<p>{{ this.variant_translated }}</p>
 							<p>Cena: {{ this.order.price }}</p>
@@ -257,7 +266,8 @@ export default {
 				booking_type: '',
 				variant: '',
 				amount: '',
-				price: null
+				price: null,
+				phone: null
 			},
 			booking_type_translated: '',
 			variant_translated: '',
@@ -334,7 +344,18 @@ export default {
 			} else {
 				const emailRegex = /\S+@\S+\.\S+/
 				if (!emailRegex.test(this.order.email)) {
-				this.email_validator = 'Adres email jest nieprawidłowy, jeśli to nie jest błąd, zgłoś się do nas na FB'
+				this.email_validator = 'Adres email jest nieprawidłowy, jeśli to nie jest błąd, napisz do nas maila.'
+				this.errorsOccured = true
+				}
+			}
+
+			if (!this.order.phone) {
+				this.phone_validator = 'Numer telefonu jest wymagany do złozenia zamówienia'
+				this.errorsOccured = true
+			} else {
+				const phoneRegex = /^\d{9}$/
+				if (!phoneRegex.test(this.order.phone)) {
+				this.phone_validator = 'Numer jest nieprawidłowy, jeśli to nie jest błąd, napisz do nas maila.'
 				this.errorsOccured = true
 				}
 			}
@@ -378,6 +399,7 @@ export default {
 				booking_type: this.order.booking_type,
 				variant: this.order.variant,
 				price: this.order.price,
+				phone: this.order.phone
 			};
 
 			await OrderDataService.create(data);
@@ -393,7 +415,6 @@ export default {
 			} else if (this.order.booking_type === 'fiveBed') {
 				this.bookingsData.data[0].fiveBed = this.bookingsData.data[0].fiveBed - 1;
 			}
-
 
 			await BookingDataService.update(this.bookingsData.data[0].id, this.bookingsData.data[0]);
 
@@ -411,6 +432,7 @@ export default {
 			this.email_validator = '';
 			this.variant_validator = '';
 			this.booking_type_validator = '';
+			this.phone_validator = '';
 		},
 		loadBookings() {
 			BookingDataService.findAll()

@@ -47,7 +47,7 @@
                     </div>
                     <div class="col">
                         <div>{{ order.first_name }} {{ order.last_name }}</div>
-                        <div>{{ order.email }}</div>
+                        <div>{{ order.email }} {{ order.phone }}</div>
                         <div>{{ translateVariant(order) }} {{ order.booking_type }}</div>
                         <div>Cena: {{ order.price }}</div>
                     </div>

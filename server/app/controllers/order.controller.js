@@ -11,6 +11,7 @@ exports.create = (req, res) => {
         booking_type: req.body.booking_type,
         variant: req.body.variant,
         price: req.body.price,
+        phone: req.body.phone,
     });
 
     order
@@ -30,7 +31,7 @@ exports.create = (req, res) => {
                 from: "letniakolonia@regle.com.pl",
                 to: data.email,
                 subject: "Letnia kolonia - potwierdzamy zamówienie",
-                html: `<p>🌼 No i super no i cześć! 🌼</p><p>Przyjęliśmy Twoją rezerwację.</p><p>Teraz, w ciągu 24 godzin, musisz zrobić przelew wg. poniższych danych. Koniecznie zwróć uwagę na tytuł przelewu! Po 48 godzinach od złożenia rezerwacji sprawdzamy czy rezerwacja została opłacona. Jeśli nie będzie płatności odblokowujemy pokój do ponownej rezerwacji, ale napiszemy Ci też w tej sprawie maila.</p><p>Po potwierdzeniu płatności otrzymasz od nas maila z informacją i szczegółami dotyczącymi naszego festiwaliku.</p><p>DANE DO PRZELEWU:</p><ul><li>Odbiorca:</li><li>Nr konta:</li><li>Kwota: ${data.price}</li><li>Tytuł przelewu: ${data.email}</li></ul>`
+                html: `<p>🌼 No i super no i cześć! 🌼</p><p>Przyjęliśmy Twoją rezerwację.</p><p>Teraz, <b>w ciągu 24 godzin</b>, musisz zrobić przelew wg. poniższych danych. Koniecznie zwróć uwagę na <b>tytuł przelewu</b>! Po 48 godzinach od złożenia rezerwacji sprawdzamy czy rezerwacja została opłacona. Jeśli nie będzie płatności odblokowujemy pokój do ponownej rezerwacji, ale napiszemy Ci też w tej sprawie maila.</p><p>Po potwierdzeniu płatności <b>otrzymasz od nas maila</b> z informacją i szczegółami dotyczącymi naszego festiwaliku.</p><p>DANE DO PRZELEWU:</p><ul><li>Odbiorca:</li><li>Nr konta:</li><li>Kwota: ${data.price}</li><li>Tytuł przelewu: ${data.email}</li></ul>`
             };
             transport.sendMail(mailOptions);
         })
@@ -102,7 +103,7 @@ exports.update = (req, res) => {
                 from: "letniakolonia@regle.com.pl",
                 to: data.email,
                 subject: "Letnia kolonia - potwierdzamy zamówienie",
-                html: `<p>🌼 No i bajlando i witamy na pokładzie! 🌼</p><p>Potwierdzamy Twoją rezerwację ❤️</p><br><u>Gdzie więcej informacji?</u><p>Bieżące informacje pojawiają się na naszych profilach <a href="https://www.facebook.com/letniakolonia">FB</a> i <a href="https://www.instagram.com/letniakolonia/">IG</a> oraz na <a href="https://www.letniakolonia.pl/">stronie wydarzenia</a></p><p>Najważniejsze aktualności wysyłali będziemy też mailem.</p><br><u>Jak dojechać?</u><p>Na miejscu mamy parking, możesz dojechać samochodem, ale organizujemy również odbiory ze stacji PKP w Domaszkowie.</p><br><u>Co musisz wziąć?</u><p>Akcesoria wypoczynkowo-basenowe, gry i zabawy plenerowe, urlop i uśmiech na twarzy.</p><br><p>Jeśli masz pytania pisz do nas na letniakolonia@regle.com.pl</p><p>DO ZOBACZENIA! ❤️</p>`,
+                html: `<p>🌼 No i bajlando i witamy na pokładzie! 🌼</p><p>Potwierdzamy Twoją rezerwację ❤️</p><br><u>Gdzie więcej informacji?</u><p>Bieżące informacje pojawiają się na naszych profilach <a href="https://www.facebook.com/letniakolonia">FB</a> i <a href="https://www.instagram.com/letniakolonia/">IG</a> oraz na <a href="https://www.letniakolonia.pl/">stronie wydarzenia</a></p><p>Najważniejsze aktualności wysyłali będziemy też mailem.</p><br><u>Jak dojechać?</u><p>Na miejscu mamy parking, możesz dojechać samochodem, ale organizujemy również odbiory ze stacji PKP w Domaszkowie.</p><p>Festiwal odbywa się tutaj: <a href="https://goo.gl/maps/Drs7gP8uU9u2duyz7">PINEZZZZKA</a></p><br><u>Co musisz wziąć?</u><p>Akcesoria wypoczynkowo-basenowe, gry i zabawy plenerowe, urlop i uśmiech na twarzy.</p><br><p>Jeśli masz pytania pisz do nas na letniakolonia@regle.com.pl</p><p>DO ZOBACZENIA! ❤️</p>`,
             };
             transport.sendMail(mailOptions);
         })

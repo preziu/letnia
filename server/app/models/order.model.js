@@ -8,6 +8,7 @@ module.exports = mongoose => {
         booking_type: String,
         variant: Number,
         price: Number,
+        phone: Number,
     },
     { timestamps: true }
     );
