@@ -1,24 +1,24 @@
-# letnia
+# Letnia Kolonia
 
-## Project setup
+_Web page for a small music festival happening at Regle Recreation Centre in Różanka, Kłodzko district._
+It is a page where participants can book a visit, it also contains a timetable and some basic info about the area where it is happening.
+Upon placing an order users will recieve automated email about payment info, when oragzers will confirm the payment, an email will also be sent.
+
+## Technologies used
+MEVN stack - MongoDB, Express.js, Vue.js and Node.js
+
+## To locally install and run webpage type commands in client catalog
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## To start a server run comands in server catalog
 ```
-npm run build
+npm install
 ```
-
-### Lints and fixes files
 ```
-npm run lint
+nodemon server.js
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
