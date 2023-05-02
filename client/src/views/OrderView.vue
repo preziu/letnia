@@ -17,7 +17,15 @@
 					<p>Gdyby pokoi zabrakło, nie pękaj, jeszcze się jakieś pojawią! Zakomunikujemy Wam to na FB</p>
 					<p>Jeśli chcesz spać w pokoju to rezerwujesz cały pokój dla swojej ekipy.</p>
 					<p>Jeśli chcesz spać w namiocie to po prostu kupujesz wejściówkę dla siebie - nie pobieramy opłaty za namioty ani za ich wielkość.</p>
-					<p>W cenie każdego pakietu są śniadania oraz wstęp na wszystkie atrakcje i występy muzyczne.</p>
+					<p>W cenie każdego pakietu:</p>
+					<ul class="list-style-none">
+						<li>- Noclegi</li>
+						<li>- Śniadanie w godzinach 10-13</li>
+						<li>- Wegańska Zupa z pajda chleba w godzinach 15-18</li>
+						<li>- Koncerty, muzyka zabawa</li>
+						<li>- Ręczniki dla śpiących w pokojach</li>
+					</ul><br>
+					<p>Możecie brać pieski - w tej sprawie skontaktuj się z nami mailowo.</p>
 					<p>Więcej infomacji znajdziesz na <a href="https://www.facebook.com/events/718230955901964" target="_blank">stronie wydarzenia.</a></p>
 				</div>
 				<div class="container">
@@ -297,25 +305,25 @@ export default {
 		propertyAAndPropertyB(newVal, oldVal) { // eslint-disable-line
 
 			if (this.order.booking_type === 'tent' && this.order.variant === '1') {
-				this.order.price = '1';
+				this.order.price = '360 zł';
 			} else if (this.order.booking_type === 'tent' && this.order.variant === '2') {
-				this.order.price = '2';
+				this.order.price = '300 zł';
 			} else if (this.order.booking_type === 'twoBed' && this.order.variant === '1') {
-				this.order.price = '3';
+				this.order.price = '1090 zł';
 			} else if (this.order.booking_type === 'twoBed' && this.order.variant === '2') {
-				this.order.price = '4';
+				this.order.price = '910 zł';
 			} else if (this.order.booking_type === 'threeBed' && this.order.variant === '1') {
-				this.order.price = '5';
+				this.order.price = '1635 zł';
 			} else if (this.order.booking_type === 'threeBed' && this.order.variant === '2') {
-				this.order.price = '6';
+				this.order.price = '1365 zł';
 			} else if (this.order.booking_type === 'foruBed' && this.order.variant === '1') {
-				this.order.price = '7';
+				this.order.price = '2180 zł';
 			} else if (this.order.booking_type === 'foruBed' && this.order.variant === '2') {
-				this.order.price = '8';
+				this.order.price = '1820 zł';
 			} else if (this.order.booking_type === 'fiveBed' && this.order.variant === '1') {
-				this.order.price = '9';
+				this.order.price = '-';
 			} else if (this.order.booking_type === 'fiveBed' && this.order.variant === '2') {
-				this.order.price = '10';
+				this.order.price = '-';
 			}
         },
 	},

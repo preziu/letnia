@@ -7,9 +7,9 @@
         </div>
     </HeaderComponent>
     <div class="card-body bg-white mb-2">
-        <p class="mt-1">Regle to nie kolejny obiekt noclegowy - to miejsce wypoczynku i spotkań, z ciekawą historią.</p>
-        <p>Ośrodek REGLE mieści się w dawnych zabudowaniach klasztornych i gospodarskich zakonu żeńskiego wzniesionego w latach 1765 – 1815. Wnętrza Ośrodka zostały starannie odremontowane, przy zachowaniu zabytkowego charakteru.</p>
-        <p>Wspaniałe miejsce z dobrą energią - dla amatorów górskich wędrówek, jazdy na rowerze, grzybobrania,a w sezonie zimowym także narciarstwa i snowboardingu.</p>
+        <p class="mt-1">⛰️ REGLE to nie kolejny obiekt noclegowy - to miejsce wypoczynku i spotkań, z ciekawą historią, które znamy od dziecka i zawsze marzyliśmy, żeby organizować tu mały, klimatyczny festiwal 🎉</p>
+        <p>🏨 Ośrodek mieści się w dawnych zabudowaniach klasztornych i gospodarskich zakonu żeńskiego wzniesionego w latach 1765 – 1815. Piaskowiec z XVIII wieku przeplata się tu z modernistyczną wizją PRLu, a wszystko doprowadzone jest do współczesnych standardów 🚀</p>
+        <p>❤️ Wspaniałe miejsce z dobrą energią - dla amatorów aktywnego spędzania czasu i miłośników miejsc ustronnych, z duszą ❤️</p>
     </div>
 </template>
 

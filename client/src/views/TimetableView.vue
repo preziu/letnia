@@ -25,43 +25,55 @@
                     <li data-target="#carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel" data-slide-to="1"></li>
                     <li data-target="#carousel" data-slide-to="2"></li>
+                    <li data-target="#carousel" data-slide-to="3"></li>
+                    <li data-target="#carousel" data-slide-to="4"></li>
+                    <li data-target="#carousel" data-slide-to="5"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <div class="view">
-                            <img class="d-block w-100" src="@/assets/img/gallery/1.jpeg" alt="Ale jazdeczka!">
+                            <img class="d-block w-100" src="@/assets/img/gallery/1.jpg">
                             <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Ale pływanko mmm!</h3>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="view">
-                            <img class="d-block w-100" src="@/assets/img/gallery/2.jpeg" alt="Zdróweczko ;)">
+                            <img class="d-block w-100" src="@/assets/img/gallery/2.jpg">
                             <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Zdróweczko ;)</h3>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="view">
-                            <img class="d-block w-100" src="@/assets/img/gallery/3.jpeg" alt="Pozdrówki kochani <3">
+                            <img class="d-block w-100" src="@/assets/img/gallery/3.jpg">
                             <div class="mask rgba-black-light"></div>
                         </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Pozdrówki kochani</h3>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="view">
+                            <img class="d-block w-100" src="@/assets/img/gallery/4.jpg">
+                            <div class="mask rgba-black-light"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="view">
+                            <img class="d-block w-100" src="@/assets/img/gallery/5.jpg">
+                            <div class="mask rgba-black-light"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="view">
+                            <img class="d-block w-100" src="@/assets/img/gallery/6.jpg">
+                            <div class="mask rgba-black-light"></div>
                         </div>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">Poprzednie</span>
                 </a>
                 <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">Następne</span>
                 </a>
             </div>
         </div>
