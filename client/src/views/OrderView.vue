@@ -163,7 +163,7 @@
 						<div v-if="order.price" class="d-flex align-items-center justify-content-between mb-3 mt-3">
 							<label class="form-check-label">Cena:</label>
 							<div class="form-group d-flex flex-row justify-content-start mb-3 mt-3">
-								{{this.order.price }}
+								{{this.order.price }} zł
 							</div>
 						</div>
 						<div v-else-if="!order.price" class="d-flex align-items-center justify-content-between mb-3 mt-3">
@@ -221,7 +221,7 @@
 							<p>{{ this.order.phone }}</p>
 							<p>{{ this.booking_type_translated }}</p>
 							<p>{{ this.variant_translated }}</p>
-							<p>Cena: {{ this.order.price }}</p>
+							<p>Cena: {{ this.order.price }} zł</p>
 						</div>
 						<div class="modal-footer d-flex justify-content-center">
 							<button type="button" class="btn btn-success" v-on:click="submitOrder" data-dismiss="modal">Zgadza się!</button>
@@ -308,21 +308,21 @@ export default {
 		propertyAAndPropertyB(newVal, oldVal) { // eslint-disable-line
 
 			if (this.order.booking_type === 'tent' && this.order.variant === '1') {
-				this.order.price = '360 zł';
+				this.order.price = '360';
 			} else if (this.order.booking_type === 'tent' && this.order.variant === '2') {
-				this.order.price = '300 zł';
+				this.order.price = '300';
 			} else if (this.order.booking_type === 'twoBed' && this.order.variant === '1') {
-				this.order.price = '1090 zł';
+				this.order.price = '1090';
 			} else if (this.order.booking_type === 'twoBed' && this.order.variant === '2') {
-				this.order.price = '910 zł';
+				this.order.price = '910';
 			} else if (this.order.booking_type === 'threeBed' && this.order.variant === '1') {
-				this.order.price = '1635 zł';
+				this.order.price = '1635';
 			} else if (this.order.booking_type === 'threeBed' && this.order.variant === '2') {
-				this.order.price = '1365 zł';
+				this.order.price = '1365';
 			} else if (this.order.booking_type === 'foruBed' && this.order.variant === '1') {
-				this.order.price = '2180 zł';
+				this.order.price = '2180';
 			} else if (this.order.booking_type === 'foruBed' && this.order.variant === '2') {
-				this.order.price = '1820 zł';
+				this.order.price = '1820';
 			} else if (this.order.booking_type === 'fiveBed' && this.order.variant === '1') {
 				this.order.price = '-';
 			} else if (this.order.booking_type === 'fiveBed' && this.order.variant === '2') {
