@@ -119,6 +119,9 @@
 											Pokój 5-osobowy
 										</label>
 									</div>
+									<div v-if="!bookingAvailabilities.twoBed && !bookingAvailabilities.threeBed && !bookingAvailabilities.fourBed && !bookingAvailabilities.fiveBed">
+										<p>Ups, na tą chwilę nie mamy już dostępnych takich pokoi - ale spokojnie! Będzie druga pula 🙂 śledź informacje na FB i IG!</p>
+									</div>
 								</div>
 							</div>
 						</div>
