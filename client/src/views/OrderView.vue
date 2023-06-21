@@ -20,12 +20,12 @@
 					<p>W cenie każdego pakietu:</p>
 					<ul class="list-style-none">
 						<li>- Noclegi</li>
-						<li>- Śniadanie w godzinach 10-13</li>
+						<li>- Śniadanie w godzinach 9-11</li>
 						<li>- Wegańska Zupa z pajda chleba w godzinach 15-18</li>
 						<li>- Koncerty, muzyka zabawa</li>
 						<li>- Ręczniki dla śpiących w pokojach</li>
 					</ul><br>
-					<p>Możecie brać pieski - w tej sprawie skontaktuj się z nami mailowo.</p>
+					<p>Możecie brać pieski - w tej sprawie skontaktuj się z nami mailowo (koszt pobytu 50 zł - płatne przy zakwaterowaniu).</p>
 					<p>Więcej infomacji znajdziesz na <a href="https://www.facebook.com/events/718230955901964" target="_blank">stronie wydarzenia.</a></p>
 				</div>
 				<div class="container">
