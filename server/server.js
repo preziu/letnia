@@ -4,6 +4,7 @@ const cors = require("cors");
 
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
+    console.log('Mongo URI:', process.env.MONGO_URI);
 }
 
 const app = express();
@@ -47,7 +48,7 @@ db.mongoose
         useUnifiedTopology: true
     })
     .then(() => {
-    console.log("Connected to the database!");
+        console.log("Connected to the database!");
     })
     .catch(err => {
         console.log("Cannot connect to the database!", err);
