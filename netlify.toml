@@ -1,0 +1,11 @@
+[build]
+  base   = "client"
+  command = "npm run build"
+  publish = "client/dist"
+
+[context.production.environment]
+  MONGODB_URL = 'mongodb+srv://hejtuprzemek:T1bjcLJplAzIgpmR@cluster0.f5ve0ek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+    MAIL_PASS = 'letniakolonia2020'
+    PORT=8081
+    NODE_ENV=production
+
